@@ -8,7 +8,7 @@
     height: 100%;
 }
 
-#more {display: none;}
+.more {display: none;}
 
 /*Cuisines*/
 #cuisines{
@@ -33,6 +33,9 @@
 }
 .buttonchan{
     border-radius: 25px;
+}
+img{
+    border-radius: 25%;
 }
 
 /* Footer */
