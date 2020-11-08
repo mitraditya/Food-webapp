@@ -8,7 +8,9 @@
     height: 100%;
 }
 
-.more {display: none;}
+.more {
+    display: none;
+}
 
 /*Cuisines*/
 #cuisines{
