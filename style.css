@@ -8,24 +8,29 @@
     height: 100%;
 }
 
+#more {display: none;}
+
 /*Cuisines*/
 #cuisines{
-    margin-top: 40px;
+    margin-top: 50px;
 }
 #cuisines img{
-    width:35%;
+    width:65%;
     text-align: center;
 }
 #cuisines ul{
     list-style-type: none;
 }
 .cuisines-column{
-    padding:10px;
+    padding:40px;
 }
 .cuisines-description{
     margin-top: 20px;
 }
 
+.specialimg{
+    display: none;
+}
 .buttonchan{
     border-radius: 25px;
 }
@@ -63,6 +68,16 @@ footer a:hover{
         justify-content: center;
     }
 }
+
+@media all and (max-width:574px){
+    .specialimg{
+        display: block;
+    }
+    .specialimg1{
+        display: none;
+    }
+}
+
 @media all and (max-width:992px){
     .navbar-toggler{
         float:right;

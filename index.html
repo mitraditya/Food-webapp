@@ -15,12 +15,16 @@
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
     <!-- navbar -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="nvbr">
             <a class="navbar-brand">Food WebApp</a>
@@ -34,14 +38,154 @@
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Favourite Food List</a>
+                        <a class="nav-link" href="favourites.html">Favourite Food List</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+
     <!-- Cuisines -->
+
+    <section id="cuisines" class="container">
+        <h1 class="text-center">Cuisines Offered</h1>
+        <hr><br>
+        <h2 class="text-center">Indian</h2><br>
+        <div class="row">
+            <div class="col-sm-6 cuisines-column text-center">
+                <img src="images/indian.jpg" alt="image" class="img-fluid img-responsive">
+            </div>
+            <div class="col-sm-6 cuisines-column text-center">
+                <h4>Paneer Butter Masala</h4>
+                <p class="cuisines-description">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
+                    nulla, nam debitis tempore <span id="dots">...</span><span id="more"> In
+                        at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida
+                        venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor
+                        porta. <br><br>
+                        <button type="button" class="btn btn-success">Add to Favourites <i
+                                class="fa fa-heart"></i></button>
+                    </span>
+                </p>
+                <button onclick="myFunction(document.getElementById('dots'), document.getElementById('more'), document.getElementById('myBtn'))" class="btn btn-primary" id="myBtn">View More</button>
+            </div>
+        </div><hr>
+        <div class="row">
+            <div class="col-sm-6 cuisines-column text-center specialimg">
+                <img src="images/indian.jpg" alt="image" class="img-fluid img-responsive">
+            </div>
+            <div class="col-sm-6 cuisines-column text-center">
+                <h4>Chole Bhature</h4>
+                <p class="cuisines-description">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
+                    nulla, nam debitis tempore <span id="dots1">...</span><span id="more1"> In
+                        at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida
+                        venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor
+                        porta. <br><br>
+                        <button type="button" class="btn btn-success">Add to Favourites <i
+                                class="fa fa-heart"></i></button>
+                    </span>
+                </p>
+                <button onclick="myFunction(document.getElementById('dots1'), document.getElementById('more1'), document.getElementById('myBtn1'))" class="btn btn-primary" id="myBtn1">View More</button>
+            </div>
+            <div class="col-sm-6 cuisines-column text-center specialimg1">
+                <img src="images/indian.jpg" alt="image" class="img-fluid img-responsive">
+            </div>
+        </div><hr><br>
+        <h2 class="text-center">Italian</h2><br>
+        <div class="row">
+            <div class="col-sm-6 cuisines-column text-center">
+                <img src="images/indian.jpg" alt="image" class="img-fluid img-responsive">
+            </div>
+            <div class="col-sm-6 cuisines-column text-center">
+                <h4>Pizza</h4>
+                <p class="cuisines-description">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
+                    nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
+                    quibusdam neque enim quia iste!
+                </p>
+            </div>
+        </div><hr>
+        <div class="row">
+            <div class="col-sm-6 cuisines-column text-center specialimg">
+                <img src="images/indian.jpg" alt="image" class="img-fluid img-responsive">
+            </div>
+            <div class="col-sm-6 cuisines-column text-center">
+                <h4>Pazzta</h4>
+                <p class="cuisines-description">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
+                    nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
+                    quibusdam neque enim quia iste!
+                </p>
+            </div>
+            <div class="col-sm-6 cuisines-column text-center specialimg1">
+                <img src="images/indian.jpg" alt="image" class="img-fluid img-responsive">
+            </div>
+        </div><hr><br>
+        <h2 class="text-center">Chinese</h2><br>
+        <div class="row">
+            <div class="col-sm-6 cuisines-column text-center">
+                <img src="images/indian.jpg" alt="image" class="img-fluid img-responsive">
+            </div>
+            <div class="col-sm-6 cuisines-column text-center">
+                <h4>Chicken Chowmein</h4>
+                <p class="cuisines-description">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
+                    nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
+                    quibusdam neque enim quia iste!
+                </p>
+            </div>
+        </div><hr>
+        <div class="row">
+            <div class="col-sm-6 cuisines-column text-center specialimg">
+                <img src="images/indian.jpg" alt="image" class="img-fluid img-responsive">
+            </div>
+            <div class="col-sm-6 cuisines-column text-center">
+                <h4>Veg Chowmein</h4>
+                <p class="cuisines-description">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
+                    nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
+                    quibusdam neque enim quia iste!
+                </p>
+            </div>
+            <div class="col-sm-6 cuisines-column text-center specialimg1">
+                <img src="images/indian.jpg" alt="image" class="img-fluid img-responsive">
+            </div>
+        </div><hr><br>
+        <h2 class="text-center">Continental</h2><br>
+        <div class="row">
+            <div class="col-sm-6 cuisines-column text-center">
+                <img src="images/indian.jpg" alt="image" class="img-fluid img-responsive">
+            </div>
+            <div class="col-sm-6 cuisines-column text-center">
+                <h4>Crispy Calamari Rings</h4>
+                <p class="cuisines-description">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
+                    nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
+                    quibusdam neque enim quia iste!
+                </p>
+            </div>
+        </div><hr>
+        <div class="row">
+            <div class="col-sm-6 cuisines-column text-center specialimg">
+                <img src="images/indian.jpg" alt="image" class="img-fluid img-responsive">
+            </div>
+            <div class="col-sm-6 cuisines-column text-center">
+                <h4>Sticky Toffee Pudding</h4>
+                <p class="cuisines-description">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
+                    nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
+                    quibusdam neque enim quia iste!
+                </p>
+            </div>
+            <div class="col-sm-6 cuisines-column text-center specialimg1">
+                <img src="images/indian.jpg" alt="image" class="img-fluid img-responsive">
+            </div>
+        </div>
+    </section>
+
+    <!--
     <section id="cuisines" class="container">
         <h1 class="text-center">Cuisines Offered</h1>
         <hr>
@@ -49,14 +193,21 @@
             <div class="col-sm-3 cuisines-column">
                 <h2 class="text-center">Indian</h2><br>
                 <h4>Paneer Butter Masala</h4>
-                <img src="#" alt="icon" class="img-fluid img-responsive">
+                <img src="#" alt="image" class="img-fluid img-responsive">
                 <p class="cuisines-description">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
-                    nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
-                    quibusdam neque enim quia iste!
-                </p><br>
+                    nulla, nam debitis tempore <span id="dots">...</span><span id="more"> In
+                    at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida
+                    venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor
+                    porta. <br><br>
+                    <button type="button" class="btn btn-success">Add to Favourites</button>
+                </span>
+                </p>
+                <button onclick="myFunction()" class="btn btn-primary" id="myBtn">View More</button>
+                <br>
+                <hr>
                 <h4>Chole Bhature</h4>
-                <img src="#" alt="icon" class="img-fluid img-responsive">
+                <img src="#" alt="image" class="img-fluid img-responsive">
                 <p class="cuisines-description">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
                     nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
@@ -66,14 +217,15 @@
             <div class="col-sm-3 cuisines-column">
                 <h2 class="text-center">Italian</h2><br>
                 <h4>Pizza</h4>
-                <img src="#" alt="icon" class="img-fluid img-responsive">
+                <img src="#" alt="image" class="img-fluid img-responsive">
                 <p class="cuisines-description">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
                     nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
                     quibusdam neque enim quia iste!
                 </p><br>
+                <hr>
                 <h4>Pazzta</h4>
-                <img src="#" alt="icon" class="img-fluid img-responsive">
+                <img src="#" alt="image" class="img-fluid img-responsive">
                 <p class="cuisines-description">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
                     nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
@@ -83,14 +235,15 @@
             <div class="col-sm-3 cuisines-column">
                 <h2 class="text-center">Chinese</h2><br>
                 <h4>Chicken Chowmein</h4>
-                <img src="#" alt="icon" class="img-fluid img-responsive">
+                <img src="#" alt="image" class="img-fluid img-responsive">
                 <p class="cuisines-description">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
                     nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
                     quibusdam neque enim quia iste!
                 </p><br>
+                <hr>
                 <h4>Veg Chowmein</h4>
-                <img src="#" alt="icon" class="img-fluid img-responsive">
+                <img src="#" alt="image" class="img-fluid img-responsive">
                 <p class="cuisines-description">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
                     nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
@@ -100,14 +253,15 @@
             <div class="col-sm-3 cuisines-column">
                 <h2 class="text-center">Continental</h2><br>
                 <h4>Crispy Calamari Rings</h4>
-                <img src="#" alt="icon" class="img-fluid img-responsive">
+                <img src="#" alt="image" class="img-fluid img-responsive">
                 <p class="cuisines-description">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
                     nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
                     quibusdam neque enim quia iste!
                 </p><br>
+                <hr>
                 <h4>Sticky Toffee Pudding</h4>
-                <img src="#" alt="icon" class="img-fluid img-responsive">
+                <img src="#" alt="image" class="img-fluid img-responsive">
                 <p class="cuisines-description">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
                     nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
@@ -116,6 +270,7 @@
             </div>
         </div>
     </section>
+-->
 
 
     <!-- Footer -->
@@ -140,6 +295,22 @@
         </div>
         <p class="text-center">Copyright &copy; Food WebApp 2020. Made with &hearts; by Aditya Mitra.</p>
     </footer>
+
+
+    <!-- JS -->
+    <script>
+        function myFunction(dots, moreText, btnText) {
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "View More";
+                moreText.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btnText.innerHTML = "View Less";
+                moreText.style.display = "inline";
+            }
+        }
+    </script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
