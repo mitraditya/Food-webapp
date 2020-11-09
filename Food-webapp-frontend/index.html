@@ -73,7 +73,7 @@
     </nav>
 
     <!-- Cuisines -->
-
+    <div id="seeModal"></div>
     <section id="cuisines" class="container">
       <h1 class="text-center">Cuisines Offered</h1>
       <hr />
@@ -97,585 +97,65 @@
         <hr />
         <br />
       </div>
-      
-      <h2 class="text-center">Italian</h2>
-      <br />
-      <div class="row">
-        <div class="col-sm-6 cuisines-column text-center">
-          <img
-            src="images/indian.jpg"
-            alt="image"
-            class="img-fluid img-responsive"
-          />
+      <div id="italianRoot">
+        <h2 class="text-center">Italian</h2>
+        <br />
+        <br />
+        <div id="italian"></div>
+        <div id="dotsf2"></div>
+        <div id="italianHide" class="more">
+        <br />
         </div>
-        <div class="col-sm-6 cuisines-column text-center">
-          <h4>Pizza</h4>
-          <p class="cuisines-description">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde,
-            nihil magni illum maxime, adipisci nulla, nam debitis tempore
-            <span id="dots5">...</span
-            ><span id="more5" class="more">
-              In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec
-              vitae dui eget tellus gravida venenatis. Integer fringilla congue
-              eros non fermentum. Sed dapibus pulvinar nibh tempor porta.
-              <br /><br />
-              <button type="button" class="btn btn-success">
-                Add to Favourites <i class="fa fa-heart"></i>
-              </button>
-            </span>
-          </p>
-          <button
-            onclick="myFunction(document.getElementById('dots5'), document.getElementById('more5'), document.getElementById('myBtn5'))"
-            class="btn btn-primary"
-            id="myBtn5"
-          >
-            View More
-          </button>
-        </div>
-      </div>
-      <hr />
-      <div class="row">
-        <div class="col-sm-6 cuisines-column text-center specialimg">
-          <img
-            src="images/indian.jpg"
-            alt="image"
-            class="img-fluid img-responsive"
-          />
-        </div>
-        <div class="col-sm-6 cuisines-column text-center">
-          <h4>Pazzta</h4>
-          <p class="cuisines-description">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde,
-            nihil magni illum maxime, adipisci nulla, nam debitis tempore
-            <span id="dots6">...</span
-            ><span id="more6" class="more">
-              In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec
-              vitae dui eget tellus gravida venenatis. Integer fringilla congue
-              eros non fermentum. Sed dapibus pulvinar nibh tempor porta.
-              <br /><br />
-              <button type="button" class="btn btn-success">
-                Add to Favourites <i class="fa fa-heart"></i>
-              </button>
-            </span>
-          </p>
-          <button
-            onclick="myFunction(document.getElementById('dots6'), document.getElementById('more6'), document.getElementById('myBtn6'))"
-            class="btn btn-primary"
-            id="myBtn6"
-          >
-            View More
-          </button>
-        </div>
-        <div class="col-sm-6 cuisines-column text-center specialimg1">
-          <img
-            src="images/indian.jpg"
-            alt="image"
-            class="img-fluid img-responsive"
-          />
-        </div>
-      </div>
-      <br />
-      <div id="dotsf2"></div>
-      <div id="moref2" class="more">
-        <div class="row">
-          <div class="col-sm-6 cuisines-column text-center">
-            <img
-              src="images/indian.jpg"
-              alt="image"
-              class="img-fluid img-responsive"
-            />
-          </div>
-          <div class="col-sm-6 cuisines-column text-center">
-            <h4>Pizza</h4>
-            <p class="cuisines-description">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde,
-              nihil magni illum maxime, adipisci nulla, nam debitis tempore
-              <span id="dots7">...</span
-              ><span id="more7" class="more">
-                In at libero sed nunc venenatis imperdiet sed ornare turpis.
-                Donec vitae dui eget tellus gravida venenatis. Integer fringilla
-                congue eros non fermentum. Sed dapibus pulvinar nibh tempor
-                porta. <br /><br />
-                <button type="button" class="btn btn-success">
-                  Add to Favourites <i class="fa fa-heart"></i>
-                </button>
-              </span>
-            </p>
-            <button
-              onclick="myFunction(document.getElementById('dots7'), document.getElementById('more7'), document.getElementById('myBtn7'))"
-              class="btn btn-primary"
-              id="myBtn7"
-            >
-              View More
-            </button>
-          </div>
-        </div>
+        <button
+          onclick="myFunctionFull(document.getElementById('dotsf2'), document.getElementById('italianHide'), document.getElementById('myBtnf2'))"
+          class="btn btn-primary"
+          id="myBtnf2"
+        >
+          View Full List
+        </button>
         <hr />
-        <div class="row">
-          <div class="col-sm-6 cuisines-column text-center specialimg">
-            <img
-              src="images/indian.jpg"
-              alt="image"
-              class="img-fluid img-responsive"
-            />
-          </div>
-          <div class="col-sm-6 cuisines-column text-center">
-            <h4>Pazzta</h4>
-            <p class="cuisines-description">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde,
-              nihil magni illum maxime, adipisci nulla, nam debitis tempore
-              <span id="dots8">...</span
-              ><span id="more8" class="more">
-                In at libero sed nunc venenatis imperdiet sed ornare turpis.
-                Donec vitae dui eget tellus gravida venenatis. Integer fringilla
-                congue eros non fermentum. Sed dapibus pulvinar nibh tempor
-                porta. <br /><br />
-                <button type="button" class="btn btn-success">
-                  Add to Favourites <i class="fa fa-heart"></i>
-                </button>
-              </span>
-            </p>
-            <button
-              onclick="myFunction(document.getElementById('dots8'), document.getElementById('more8'), document.getElementById('myBtn8'))"
-              class="btn btn-primary"
-              id="myBtn8"
-            >
-              View More
-            </button>
-          </div>
-          <div class="col-sm-6 cuisines-column text-center specialimg1">
-            <img
-              src="images/indian.jpg"
-              alt="image"
-              class="img-fluid img-responsive"
-            />
-          </div>
-        </div>
         <br />
       </div>
-      <button
-        onclick="myFunctionFull(document.getElementById('dotsf2'), document.getElementById('moref2'), document.getElementById('myBtnf2'))"
-        class="btn btn-primary"
-        id="myBtnf2"
-      >
-        View Full List
-      </button>
-      <hr />
-      <br />
-      <h2 class="text-center">Chinese</h2>
-      <br />
-      <div class="row">
-        <div class="col-sm-6 cuisines-column text-center">
-          <img
-            src="images/indian.jpg"
-            alt="image"
-            class="img-fluid img-responsive"
-          />
+      <div id="chineseRoot">
+        <h2 class="text-center">Chinese</h2>
+        <br />
+        <br />
+        <div id="chinese"></div>
+        <div id="dotsf3"></div>
+        <div id="chineseHide" class="more">
+        <br />
         </div>
-        <div class="col-sm-6 cuisines-column text-center">
-          <h4>Chicken Chowmein</h4>
-          <p class="cuisines-description">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde,
-            nihil magni illum maxime, adipisci nulla, nam debitis tempore
-            <span id="dots9">...</span
-            ><span id="more9" class="more">
-              In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec
-              vitae dui eget tellus gravida venenatis. Integer fringilla congue
-              eros non fermentum. Sed dapibus pulvinar nibh tempor porta.
-              <br /><br />
-              <button type="button" class="btn btn-success">
-                Add to Favourites <i class="fa fa-heart"></i>
-              </button>
-            </span>
-          </p>
-          <button
-            onclick="myFunction(document.getElementById('dots9'), document.getElementById('more9'), document.getElementById('myBtn9'))"
-            class="btn btn-primary"
-            id="myBtn9"
-          >
-            View More
-          </button>
-        </div>
-      </div>
-      <hr />
-      <div class="row">
-        <div class="col-sm-6 cuisines-column text-center specialimg">
-          <img
-            src="images/indian.jpg"
-            alt="image"
-            class="img-fluid img-responsive"
-          />
-        </div>
-        <div class="col-sm-6 cuisines-column text-center">
-          <h4>Veg Chowmein</h4>
-          <p class="cuisines-description">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde,
-            nihil magni illum maxime, adipisci nulla, nam debitis tempore
-            <span id="dots10">...</span
-            ><span id="more10" class="more">
-              In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec
-              vitae dui eget tellus gravida venenatis. Integer fringilla congue
-              eros non fermentum. Sed dapibus pulvinar nibh tempor porta.
-              <br /><br />
-              <button type="button" class="btn btn-success">
-                Add to Favourites <i class="fa fa-heart"></i>
-              </button>
-            </span>
-          </p>
-          <button
-            onclick="myFunction(document.getElementById('dots10'), document.getElementById('more10'), document.getElementById('myBtn10'))"
-            class="btn btn-primary"
-            id="myBtn10"
-          >
-            View More
-          </button>
-        </div>
-        <div class="col-sm-6 cuisines-column text-center specialimg1">
-          <img
-            src="images/indian.jpg"
-            alt="image"
-            class="img-fluid img-responsive"
-          />
-        </div>
-      </div>
-      <br />
-      <div id="dotsf3"></div>
-      <div id="moref3" class="more">
-        <div class="row">
-          <div class="col-sm-6 cuisines-column text-center">
-            <img
-              src="images/indian.jpg"
-              alt="image"
-              class="img-fluid img-responsive"
-            />
-          </div>
-          <div class="col-sm-6 cuisines-column text-center">
-            <h4>Chicken Chowmein</h4>
-            <p class="cuisines-description">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde,
-              nihil magni illum maxime, adipisci nulla, nam debitis tempore
-              <span id="dots11">...</span
-              ><span id="more11" class="more">
-                In at libero sed nunc venenatis imperdiet sed ornare turpis.
-                Donec vitae dui eget tellus gravida venenatis. Integer fringilla
-                congue eros non fermentum. Sed dapibus pulvinar nibh tempor
-                porta. <br /><br />
-                <button type="button" class="btn btn-success">
-                  Add to Favourites <i class="fa fa-heart"></i>
-                </button>
-              </span>
-            </p>
-            <button
-              onclick="myFunction(document.getElementById('dots11'), document.getElementById('more11'), document.getElementById('myBtn11'))"
-              class="btn btn-primary"
-              id="myBtn11"
-            >
-              View More
-            </button>
-          </div>
-        </div>
+        <button
+          onclick="myFunctionFull(document.getElementById('dotsf3'), document.getElementById('chineseHide'), document.getElementById('myBtnf3'))"
+          class="btn btn-primary"
+          id="myBtnf3"
+        >
+          View Full List
+        </button>
         <hr />
-        <div class="row">
-          <div class="col-sm-6 cuisines-column text-center specialimg">
-            <img
-              src="images/indian.jpg"
-              alt="image"
-              class="img-fluid img-responsive"
-            />
-          </div>
-          <div class="col-sm-6 cuisines-column text-center">
-            <h4>Veg Chowmein</h4>
-            <p class="cuisines-description">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde,
-              nihil magni illum maxime, adipisci nulla, nam debitis tempore
-              <span id="dots12">...</span
-              ><span id="more12" class="more">
-                In at libero sed nunc venenatis imperdiet sed ornare turpis.
-                Donec vitae dui eget tellus gravida venenatis. Integer fringilla
-                congue eros non fermentum. Sed dapibus pulvinar nibh tempor
-                porta. <br /><br />
-                <button type="button" class="btn btn-success">
-                  Add to Favourites <i class="fa fa-heart"></i>
-                </button>
-              </span>
-            </p>
-            <button
-              onclick="myFunction(document.getElementById('dots12'), document.getElementById('more12'), document.getElementById('myBtn12'))"
-              class="btn btn-primary"
-              id="myBtn12"
-            >
-              View More
-            </button>
-          </div>
-          <div class="col-sm-6 cuisines-column text-center specialimg1">
-            <img
-              src="images/indian.jpg"
-              alt="image"
-              class="img-fluid img-responsive"
-            />
-          </div>
-        </div>
         <br />
       </div>
-      <button
-        onclick="myFunctionFull(document.getElementById('dotsf3'), document.getElementById('moref3'), document.getElementById('myBtnf3'))"
-        class="btn btn-primary"
-        id="myBtnf3"
-      >
-        View Full List
-      </button>
-      <hr />
-      <br />
-      <h2 class="text-center">Continental</h2>
-      <br />
-      <div class="row">
-        <div class="col-sm-6 cuisines-column text-center">
-          <img
-            src="images/indian.jpg"
-            alt="image"
-            class="img-fluid img-responsive"
-          />
+      <div id="continentalRoot">
+        <h2 class="text-center">Continental</h2>
+        <br />
+        <br />
+        <div id="continental"></div>
+        <div id="dotsf4"></div>
+        <div id="continentalHide" class="more">
+        <br />
         </div>
-        <div class="col-sm-6 cuisines-column text-center">
-          <h4>Crispy Calamari Rings</h4>
-          <p class="cuisines-description">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde,
-            nihil magni illum maxime, adipisci nulla, nam debitis tempore
-            <span id="dots13">...</span
-            ><span id="more13" class="more">
-              In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec
-              vitae dui eget tellus gravida venenatis. Integer fringilla congue
-              eros non fermentum. Sed dapibus pulvinar nibh tempor porta.
-              <br /><br />
-              <button type="button" class="btn btn-success">
-                Add to Favourites <i class="fa fa-heart"></i>
-              </button>
-            </span>
-          </p>
-          <button
-            onclick="myFunction(document.getElementById('dots13'), document.getElementById('more13'), document.getElementById('myBtn13'))"
-            class="btn btn-primary"
-            id="myBtn13"
-          >
-            View More
-          </button>
-        </div>
-      </div>
-      <hr />
-      <div class="row">
-        <div class="col-sm-6 cuisines-column text-center specialimg">
-          <img
-            src="images/indian.jpg"
-            alt="image"
-            class="img-fluid img-responsive"
-          />
-        </div>
-        <div class="col-sm-6 cuisines-column text-center">
-          <h4>Sticky Toffee Pudding</h4>
-          <p class="cuisines-description">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde,
-            nihil magni illum maxime, adipisci nulla, nam debitis tempore
-            <span id="dots14">...</span
-            ><span id="more14" class="more">
-              In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec
-              vitae dui eget tellus gravida venenatis. Integer fringilla congue
-              eros non fermentum. Sed dapibus pulvinar nibh tempor porta.
-              <br /><br />
-              <button type="button" class="btn btn-success">
-                Add to Favourites <i class="fa fa-heart"></i>
-              </button>
-            </span>
-          </p>
-          <button
-            onclick="myFunction(document.getElementById('dots14'), document.getElementById('more14'), document.getElementById('myBtn14'))"
-            class="btn btn-primary"
-            id="myBtn14"
-          >
-            View More
-          </button>
-        </div>
-        <div class="col-sm-6 cuisines-column text-center specialimg1">
-          <img
-            src="images/indian.jpg"
-            alt="image"
-            class="img-fluid img-responsive"
-          />
-        </div>
-      </div>
-      <br />
-      <div id="dotsf4"></div>
-      <div id="moref4" class="more">
-        <div class="row">
-          <div class="col-sm-6 cuisines-column text-center">
-            <img
-              src="images/indian.jpg"
-              alt="image"
-              class="img-fluid img-responsive"
-            />
-          </div>
-          <div class="col-sm-6 cuisines-column text-center">
-            <h4>Crispy Calamari Rings</h4>
-            <p class="cuisines-description">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde,
-              nihil magni illum maxime, adipisci nulla, nam debitis tempore
-              <span id="dots15">...</span
-              ><span id="more15" class="more">
-                In at libero sed nunc venenatis imperdiet sed ornare turpis.
-                Donec vitae dui eget tellus gravida venenatis. Integer fringilla
-                congue eros non fermentum. Sed dapibus pulvinar nibh tempor
-                porta. <br /><br />
-                <button type="button" class="btn btn-success">
-                  Add to Favourites <i class="fa fa-heart"></i>
-                </button>
-              </span>
-            </p>
-            <button
-              onclick="myFunction(document.getElementById('dots15'), document.getElementById('more15'), document.getElementById('myBtn15'))"
-              class="btn btn-primary"
-              id="myBtn15"
-            >
-              View More
-            </button>
-          </div>
-        </div>
+        <button
+          onclick="myFunctionFull(document.getElementById('dotsf4'), document.getElementById('continentalHide'), document.getElementById('myBtnf4'))"
+          class="btn btn-primary"
+          id="myBtnf4"
+        >
+          View Full List
+        </button>
         <hr />
-        <div class="row">
-          <div class="col-sm-6 cuisines-column text-center specialimg">
-            <img
-              src="images/indian.jpg"
-              alt="image"
-              class="img-fluid img-responsive"
-            />
-          </div>
-          <div class="col-sm-6 cuisines-column text-center">
-            <h4>Sticky Toffee Pudding</h4>
-            <p class="cuisines-description">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde,
-              nihil magni illum maxime, adipisci nulla, nam debitis tempore
-              <span id="dots16">...</span
-              ><span id="more16" class="more">
-                In at libero sed nunc venenatis imperdiet sed ornare turpis.
-                Donec vitae dui eget tellus gravida venenatis. Integer fringilla
-                congue eros non fermentum. Sed dapibus pulvinar nibh tempor
-                porta. <br /><br />
-                <button type="button" class="btn btn-success">
-                  Add to Favourites <i class="fa fa-heart"></i>
-                </button>
-              </span>
-            </p>
-            <button
-              onclick="myFunction(document.getElementById('dots16'), document.getElementById('more16'), document.getElementById('myBtn16'))"
-              class="btn btn-primary"
-              id="myBtn16"
-            >
-              View More
-            </button>
-          </div>
-          <div class="col-sm-6 cuisines-column text-center specialimg1">
-            <img
-              src="images/indian.jpg"
-              alt="image"
-              class="img-fluid img-responsive"
-            />
-          </div>
-        </div>
         <br />
       </div>
-      <button
-        onclick="myFunctionFull(document.getElementById('dotsf4'), document.getElementById('moref4'), document.getElementById('myBtnf4'))"
-        class="btn btn-primary"
-        id="myBtnf4"
-      >
-        View Full List
-      </button>
-    </section>
 
-    <!--
-    <section id="cuisines" class="container">
-        <h1 class="text-center">Cuisines Offered</h1>
-        <hr>
-        <div class="row">
-            <div class="col-sm-3 cuisines-column">
-                <h2 class="text-center">Indian</h2><br>
-                <h4>Paneer Butter Masala</h4>
-                <img src="#" alt="image" class="img-fluid img-responsive">
-                <p class="cuisines-description">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
-                    nulla, nam debitis tempore <span id="dots">...</span><span id="more"> In
-                    at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida
-                    venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor
-                    porta. <br><br>
-                    <button type="button" class="btn btn-success">Add to Favourites</button>
-                </span>
-                </p>
-                <button onclick="myFunction()" class="btn btn-primary" id="myBtn">View More</button>
-                <br>
-                <hr>
-                <h4>Chole Bhature</h4>
-                <img src="#" alt="image" class="img-fluid img-responsive">
-                <p class="cuisines-description">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
-                    nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
-                    quibusdam neque enim quia iste!
-                </p>
-            </div>
-            <div class="col-sm-3 cuisines-column">
-                <h2 class="text-center">Italian</h2><br>
-                <h4>Pizza</h4>
-                <img src="#" alt="image" class="img-fluid img-responsive">
-                <p class="cuisines-description">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
-                    nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
-                    quibusdam neque enim quia iste!
-                </p><br>
-                <hr>
-                <h4>Pazzta</h4>
-                <img src="#" alt="image" class="img-fluid img-responsive">
-                <p class="cuisines-description">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
-                    nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
-                    quibusdam neque enim quia iste!
-                </p>
-            </div>
-            <div class="col-sm-3 cuisines-column">
-                <h2 class="text-center">Chinese</h2><br>
-                <h4>Chicken Chowmein</h4>
-                <img src="#" alt="image" class="img-fluid img-responsive">
-                <p class="cuisines-description">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
-                    nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
-                    quibusdam neque enim quia iste!
-                </p><br>
-                <hr>
-                <h4>Veg Chowmein</h4>
-                <img src="#" alt="image" class="img-fluid img-responsive">
-                <p class="cuisines-description">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
-                    nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
-                    quibusdam neque enim quia iste!
-                </p>
-            </div>
-            <div class="col-sm-3 cuisines-column">
-                <h2 class="text-center">Continental</h2><br>
-                <h4>Crispy Calamari Rings</h4>
-                <img src="#" alt="image" class="img-fluid img-responsive">
-                <p class="cuisines-description">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
-                    nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
-                    quibusdam neque enim quia iste!
-                </p><br>
-                <hr>
-                <h4>Sticky Toffee Pudding</h4>
-                <img src="#" alt="image" class="img-fluid img-responsive">
-                <p class="cuisines-description">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, nihil magni illum maxime, adipisci
-                    nulla, nam debitis tempore accusantium molestiae possimus provident eligendi nesciunt laborum
-                    quibusdam neque enim quia iste!
-                </p>
-            </div>
-        </div>
     </section>
--->
 
     <!-- Footer -->
     <footer>
@@ -755,8 +235,28 @@
               console.log(res)
           })
       }
+
+      function showModal(item,description, id){
+       var content = ` <div class="modal">
+  <div class="modal-header">
+    <span class="close-btn">&times;</span>
+    <h1>${item}</h1>
+  </div>
+  <div class="modal-content">
+    <p>${description}</p>
+  </div>
+  <div class="modal-footer">
+    <h2>I am the Footer</h2>
+  </div>
+</div>`;
+
+document.getElementById('seeModal').innerHTML += content
+      }
       $(document).ready(() => {
         var countindian = 0;
+        var countitalian = 0;
+        var countchinese = 0;
+        var countcontinental = 0;
         fetch("http://localhost:3000/")
           .then((response) => response.json())
           .then((json) => {
@@ -769,14 +269,14 @@
               if(i%2==0){
                 content = `
                 <div class="row">
-        <div class="col-sm-6 cuisines-column text-center">
+        <div class="col-sm-6 cuisines-column text-center data-aos="fade-up"">
           <img
             src="images/indian.jpg"
             alt="image"
             class="img-fluid img-responsive"
           />
         </div>
-        <div class="col-sm-6 cuisines-column text-center">
+        <div class="col-sm-6 cuisines-column text-center data-aos="fade-up"">
           <h4>${entry['item']}</h4>
           <p class="cuisines-description">
             ${entry['description'].substring(0,30)}
@@ -804,7 +304,7 @@
               else{
                   content = `
                 <div class="row">
-        <div class="col-sm-6 cuisines-column text-center">
+        <div class="col-sm-6 cuisines-column text-center data-aos="fade-up"">
           <h4>${entry['item']}</h4>
           <p class="cuisines-description">
             ${entry['description'].substring(0,30)}
@@ -818,14 +318,14 @@
             </span>
           </p>
           <button
-            onclick="myFunction(document.getElementById('dots${entry['_id']}'), document.getElementById('more${entry['_id']}'), document.getElementById('myBtn${entry['_id']}'))"
+          onclick="myFunction(document.getElementById('dots${entry['_id']}'), document.getElementById('more${entry['_id']}'), document.getElementById('myBtn${entry['_id']}'))"
             class="btn btn-primary"
             id="myBtn${entry['_id']}"
           >
             View More
           </button>
         </div>
-        <div class="col-sm-6 cuisines-column text-center">
+        <div class="col-sm-6 cuisines-column text-center data-aos="fade-up"">
           <img
             src="images/indian.jpg"
             alt="image"
@@ -839,11 +339,19 @@
               }
             // Construct card content
             //console.log('ffffff   ' + this[`countindian`])
-        if(countindian<2){ 
+        if(entry[`cuisine`]=="indian" && countindian<2){ 
         document.getElementById(`${entry[`cuisine`]}`).innerHTML += content;
             countindian++;}
+            else if(entry[`cuisine`]=="italian" && countitalian<2){ 
+        document.getElementById(`${entry[`cuisine`]}`).innerHTML += content;
+            countitalian++;}
+            else if(entry[`cuisine`]=="continental" && countcontinental<2){ 
+        document.getElementById(`${entry[`cuisine`]}`).innerHTML += content;
+            countcontinental++;}
+            else if(entry[`cuisine`]=="chinese" && countchinese<2){ 
+        document.getElementById(`${entry[`cuisine`]}`).innerHTML += content;
+            countchinese++;}
             else{
-            console.log(countindian)
             document.getElementById(`${entry[`cuisine`]}Hide`).innerHTML += content;}
             });
           });
