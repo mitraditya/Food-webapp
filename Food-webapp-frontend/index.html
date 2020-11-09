@@ -85,7 +85,7 @@
         <div id="indian"></div>
         <div id="dotsf1"></div>
         <div id="indianHide" class="more">
-        <br />
+          <br />
         </div>
         <button
           onclick="myFunctionFull(document.getElementById('dotsf1'), document.getElementById('indianHide'), document.getElementById('myBtnf1'))"
@@ -104,7 +104,7 @@
         <div id="italian"></div>
         <div id="dotsf2"></div>
         <div id="italianHide" class="more">
-        <br />
+          <br />
         </div>
         <button
           onclick="myFunctionFull(document.getElementById('dotsf2'), document.getElementById('italianHide'), document.getElementById('myBtnf2'))"
@@ -123,7 +123,7 @@
         <div id="chinese"></div>
         <div id="dotsf3"></div>
         <div id="chineseHide" class="more">
-        <br />
+          <br />
         </div>
         <button
           onclick="myFunctionFull(document.getElementById('dotsf3'), document.getElementById('chineseHide'), document.getElementById('myBtnf3'))"
@@ -142,7 +142,7 @@
         <div id="continental"></div>
         <div id="dotsf4"></div>
         <div id="continentalHide" class="more">
-        <br />
+          <br />
         </div>
         <button
           onclick="myFunctionFull(document.getElementById('dotsf4'), document.getElementById('continentalHide'), document.getElementById('myBtnf4'))"
@@ -154,7 +154,6 @@
         <hr />
         <br />
       </div>
-
     </section>
 
     <!-- Footer -->
@@ -206,7 +205,6 @@
           moreText.style.display = "inline";
         }
       }
-    
     </script>
 
     <!-- AOS Library-->
@@ -230,14 +228,16 @@
     ></script>
 
     <script>
-         async function addtofav(id) {
-          await fetch(`http://localhost:3000/favFoodList?id=${id}`, {method:"POST"}).then((res)=>{
-              console.log(res)
-          })
+      async function addtofav(id) {
+        await fetch(`http://localhost:3000/favFoodList?id=${id}`, {
+          method: "POST",
+        }).then((res) => {
+          console.log(res);
+        });
       }
 
-      function showModal(item,description, id){
-       var content = ` <div class="modal">
+      function showModal(item, description, id) {
+        var content = ` <div class="modal">
   <div class="modal-header">
     <span class="close-btn">&times;</span>
     <h1>${item}</h1>
@@ -250,7 +250,7 @@
   </div>
 </div>`;
 
-document.getElementById('seeModal').innerHTML += content
+        document.getElementById("seeModal").innerHTML += content;
       }
       $(document).ready(() => {
         var countindian = 0;
@@ -266,33 +266,39 @@ document.getElementById('seeModal').innerHTML += content
               console.log(entry["_id"]);
               console.log(i);
               var content;
-              if(i%2==0){
+              if (i % 2 == 0) {
                 content = `
                 <div class="row">
-        <div class="col-sm-6 cuisines-column text-center data-aos="fade-up"">
+        <div class="col-sm-6 cuisines-column text-center">
           <img
             src="images/indian.jpg"
             alt="image"
             class="img-fluid img-responsive"
           />
         </div>
-        <div class="col-sm-6 cuisines-column text-center data-aos="fade-up"">
-          <h4>${entry['item']}</h4>
+        <div class="col-sm-6 cuisines-column text-center">
+          <h4>${entry["item"]}</h4>
           <p class="cuisines-description">
-            ${entry['description'].substring(0,30)}
-            <span id="dots${entry['_id']}">...</span
-            ><span id="more${entry['_id']}" class="more">
-                ${entry['description'].substring(31)}
+            ${entry["description"].substring(0, 30)}
+            <span id="dots${entry["_id"]}">...</span
+            ><span id="more${entry["_id"]}" class="more">
+                ${entry["description"].substring(30)}
               <br /><br />
-              <button type="button" onclick="addtofav('${entry['_id']}')" class="btn btn-success">
+              <button type="button" onclick="addtofav('${
+                entry["_id"]
+              }')" class="btn btn-success">
                 Add to Favourites <i class="fa fa-heart"></i>
               </button>
             </span>
           </p>
           <button
-            onclick="myFunction(document.getElementById('dots${entry['_id']}'), document.getElementById('more${entry['_id']}'), document.getElementById('myBtn${entry['_id']}'))"
+            onclick="myFunction(document.getElementById('dots${
+              entry["_id"]
+            }'), document.getElementById('more${
+                  entry["_id"]
+                }'), document.getElementById('myBtn${entry["_id"]}'))"
             class="btn btn-primary"
-            id="myBtn${entry['_id']}"
+            id="myBtn${entry["_id"]}"
           >
             View More
           </button>
@@ -300,32 +306,44 @@ document.getElementById('seeModal').innerHTML += content
       </div>
       <hr />
     `;
-              }
-              else{
-                  content = `
+              } else {
+                content = `
                 <div class="row">
-        <div class="col-sm-6 cuisines-column text-center data-aos="fade-up"">
-          <h4>${entry['item']}</h4>
+                  <div class="col-sm-6 cuisines-column text-center specialimg">
+          <img
+            src="images/indian.jpg"
+            alt="image"
+            class="img-fluid img-responsive"
+          />
+        </div>
+        <div class="col-sm-6 cuisines-column text-center">
+          <h4>${entry["item"]}</h4>
           <p class="cuisines-description">
-            ${entry['description'].substring(0,30)}
-            <span id="dots${entry['_id']}">...</span
-            ><span id="more${entry['_id']}" class="more">
-                ${entry['description'].substring(31)}
+            ${entry["description"].substring(0, 30)}
+            <span id="dots${entry["_id"]}">...</span
+            ><span id="more${entry["_id"]}" class="more">
+                ${entry["description"].substring(30)}
               <br /><br />
-              <button type="button" onclick="addtofav('${entry['_id']}')" class="btn btn-success">
+              <button type="button" onclick="addtofav('${
+                entry["_id"]
+              }')" class="btn btn-success">
                 Add to Favourites <i class="fa fa-heart"></i>
               </button>
             </span>
           </p>
           <button
-          onclick="myFunction(document.getElementById('dots${entry['_id']}'), document.getElementById('more${entry['_id']}'), document.getElementById('myBtn${entry['_id']}'))"
+          onclick="myFunction(document.getElementById('dots${
+            entry["_id"]
+          }'), document.getElementById('more${
+                  entry["_id"]
+                }'), document.getElementById('myBtn${entry["_id"]}'))"
             class="btn btn-primary"
-            id="myBtn${entry['_id']}"
+            id="myBtn${entry["_id"]}"
           >
             View More
           </button>
         </div>
-        <div class="col-sm-6 cuisines-column text-center data-aos="fade-up"">
+        <div class="col-sm-6 cuisines-column text-center specialimg1">
           <img
             src="images/indian.jpg"
             alt="image"
@@ -337,22 +355,36 @@ document.getElementById('seeModal').innerHTML += content
       <hr />
     `;
               }
-            // Construct card content
-            //console.log('ffffff   ' + this[`countindian`])
-        if(entry[`cuisine`]=="indian" && countindian<2){ 
-        document.getElementById(`${entry[`cuisine`]}`).innerHTML += content;
-            countindian++;}
-            else if(entry[`cuisine`]=="italian" && countitalian<2){ 
-        document.getElementById(`${entry[`cuisine`]}`).innerHTML += content;
-            countitalian++;}
-            else if(entry[`cuisine`]=="continental" && countcontinental<2){ 
-        document.getElementById(`${entry[`cuisine`]}`).innerHTML += content;
-            countcontinental++;}
-            else if(entry[`cuisine`]=="chinese" && countchinese<2){ 
-        document.getElementById(`${entry[`cuisine`]}`).innerHTML += content;
-            countchinese++;}
-            else{
-            document.getElementById(`${entry[`cuisine`]}Hide`).innerHTML += content;}
+              // Construct card content
+              //console.log('ffffff   ' + this[`countindian`])
+              if (entry[`cuisine`] == "indian" && countindian < 2) {
+                document.getElementById(
+                  `${entry[`cuisine`]}`
+                ).innerHTML += content;
+                countindian++;
+              } else if (entry[`cuisine`] == "italian" && countitalian < 2) {
+                document.getElementById(
+                  `${entry[`cuisine`]}`
+                ).innerHTML += content;
+                countitalian++;
+              } else if (
+                entry[`cuisine`] == "continental" &&
+                countcontinental < 2
+              ) {
+                document.getElementById(
+                  `${entry[`cuisine`]}`
+                ).innerHTML += content;
+                countcontinental++;
+              } else if (entry[`cuisine`] == "chinese" && countchinese < 2) {
+                document.getElementById(
+                  `${entry[`cuisine`]}`
+                ).innerHTML += content;
+                countchinese++;
+              } else {
+                document.getElementById(
+                  `${entry[`cuisine`]}Hide`
+                ).innerHTML += content;
+              }
             });
           });
         // fetch('',{method: "get", mode:"no-cors"}).then((response)=>{
