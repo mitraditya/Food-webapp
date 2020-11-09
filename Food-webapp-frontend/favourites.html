@@ -48,6 +48,7 @@
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
             <ul class="list-group" id="display">
+
             </ul>
         </div>
         <div class="col-lg-2"></div>
@@ -86,6 +87,43 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
+
+        <script>
+            async function deletefav(id) {
+             await fetch(`http://localhost:3000/deleteitem/?id=${id}`, {method:"DELETE"}).then((res)=>{
+                 console.log(res)
+                 location.reload();
+             })
+         }
+         $(document).ready(() => {
+               fetch("http://localhost:3000/favFoodList")
+             .then((response) => response.json())
+             .then((json) => {
+               console.log(json.favList);
+               const container = document.getElementById("display");
+               json.favList.forEach((entry, i) => {
+                 console.log(entry["_id"]);
+                 console.log(i);
+                 var content;
+                   content = `<li class="list-group-item" id="${entry[`_id`]}">
+                            <div class="row">
+                               <div class="col-md-4" id="${entry[`cuisine`]}"> ${entry['item']}</div>
+                               <div class="col-md-4">${entry[`cuisine`]}</div>
+                               <div class="col-md-4 text-right">
+                                   <button type="button" onclick="deletefav('${entry['_id']}')" class="btn btn-danger" id="${entry[`_id`]}">Delete</button>    
+                               </div>
+                            </div>
+                         </li>`;
+               // Construct card content
+             
+        container.innerHTML += content;
+
+             }); })})
+           // fetch('',{method: "get", mode:"no-cors"}).then((response)=>{
+           //     console.log(response);
+           // })
+        
+       </script>
 
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

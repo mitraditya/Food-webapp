@@ -727,6 +727,7 @@
           moreText.style.display = "inline";
         }
       }
+    
     </script>
 
     <!-- AOS Library-->
@@ -750,6 +751,11 @@
     ></script>
 
     <script>
+         async function addtofav(id) {
+          await fetch(`http://localhost:3000/favFoodList?id=${id}`, {method:"POST"}).then((res)=>{
+              console.log(res)
+          })
+      }
       $(document).ready(() => {
         var countindian = 0;
         fetch("http://localhost:3000/")
@@ -779,7 +785,7 @@
             ><span id="more${entry['_id']}" class="more">
                 ${entry['description'].substring(31)}
               <br /><br />
-              <button type="button" class="btn btn-success">
+              <button type="button" onclick="addtofav('${entry['_id']}')" class="btn btn-success">
                 Add to Favourites <i class="fa fa-heart"></i>
               </button>
             </span>
@@ -807,7 +813,7 @@
             ><span id="more${entry['_id']}" class="more">
                 ${entry['description'].substring(31)}
               <br /><br />
-              <button type="button" class="btn btn-success">
+              <button type="button" onclick="addtofav('${entry['_id']}')" class="btn btn-success">
                 Add to Favourites <i class="fa fa-heart"></i>
               </button>
             </span>
