@@ -5,6 +5,7 @@ var app = express()
 
 app.use(cors())
 const foodList = require('./foodlist')
+const favFoodList = require('./favfoodlist')
 
 mongoose.connect('mongodb://localhost/favfoodlist', {
     useNewUrlParser: true, useUnifiedTopology: true
