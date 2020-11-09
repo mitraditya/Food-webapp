@@ -61,7 +61,7 @@ app.get('/favFoodList', async (req, res) => {
 });
 
 app.delete('/deleteitem', async (req, res) => {
-    await foodList.findOneAndRemove({ _id: mongoose.Types.ObjectId(req.query.id)},function (err) {
+    await favFoodList.findOneAndRemove({ _id: mongoose.Types.ObjectId(req.query.id)},function (err) {
         if(err){
             console.log(err)
             res.send("Not found")

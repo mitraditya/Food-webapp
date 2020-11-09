@@ -78,15 +78,14 @@
       <h1 class="text-center">Cuisines Offered</h1>
       <hr />
       <br />
-      <div id="indian">
+      <div id="indianRoot">
         <h2 class="text-center">Indian</h2>
         <br />
-        
         <br />
+        <div id="indian"></div>
         <div id="dotsf1"></div>
         <div id="indianHide" class="more">
-          
-          <br />
+        <br />
         </div>
         <button
           onclick="myFunctionFull(document.getElementById('dotsf1'), document.getElementById('indianHide'), document.getElementById('myBtnf1'))"
@@ -839,12 +838,10 @@
     `;
               }
             // Construct card content
-            console.log('ffffff   ' + this[`countindian`])
-        if(this[`countindian`]<2){ 
+            //console.log('ffffff   ' + this[`countindian`])
+        if(countindian<2){ 
         document.getElementById(`${entry[`cuisine`]}`).innerHTML += content;
-        eval('var ' + 'count' + `${entry['cuisine']}`  + '= ' + 1 + ';');
-            console.log(countindian)
-        }
+            countindian++;}
             else{
             console.log(countindian)
             document.getElementById(`${entry[`cuisine`]}Hide`).innerHTML += content;}
