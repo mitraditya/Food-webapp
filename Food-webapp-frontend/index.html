@@ -40,40 +40,142 @@
     <!-- navbar -->
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="nvbr">
-        <a class="navbar-brand">Food WebApp</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="collapse navbar-collapse"
-          id="navbarSupportedContent"
-          style="max-width: 300px"
-        >
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="favourites.html">Favourite Food List</a>
-            </li>
-          </ul>
-        </div>
+      <a class="navbar-brand" href="#">Food WebApp</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="indian.html">Indian</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="italian.html">Italian</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="chinese.html">Chinese</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="continental.html">Continental</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="favourites.html">Favourite Food List</a>
+          </li>
+        </ul>
+        <button class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="submit">Log In</button>
+        <button class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="submit">Sign Up</button>
       </div>
     </nav>
 
-    <!-- Cuisines -->
-    <div id="seeModal"></div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">View Less</button>
+        <button type="button" class="btn btn-success">Add to Favourites <i class="fa fa-heart"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Card Section -->
+    <!--<section class="container">
+        <div class="row">
+            <div class="col-sm-4 card-padding">
+                <div class="card">
+                    <img src="images/indian.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      <h5 class="card-title">Paneer Butter Masala</h5><h6 style="color: red;"> Indian</h6>
+                      <p class="card-text">
+                        Paneer butter masala is an Ind ian dish of marinated paneer cheese
+                        served in a spiced gravy....
+                      </p>
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">View More</button>
+                    </div>
+                    <button type="button" class="btn btn-success">Add to Favourites <i
+                        class="fa fa-heart"></i></button>
+                  </div>
+            </div>
+            <div class="col-sm-4 card-padding">
+                <div class="card">
+                    <img src="images/indian.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      <h5 class="card-title">Paneer Butter Masala</h5><h6 style="color: red;"> Indian</h6>
+                      <p class="card-text">
+                        Paneer butter masala is an Ind ian dish of marinated paneer cheese
+                        served in a spiced gravy. <span id="dots2">...</span><span id="more2" class="more"> It is a vegetarian alternative to chicken
+                        tikka masala. Ingredients: Spice, Garlic, Tomato, Paneer, Price: Rs
+                        135, Source-Vegetarian, Customer Reviews: 1) Very Good, 2) Awesome.
+                      </span>
+                      </p>
+                      <button onclick="myFunction(document.getElementById('dots2'), document.getElementById('more2'), document.getElementById('myBtn2'))" class="btn btn-primary" id="myBtn2">View More</button>
+                    </div>
+                    <button type="button" class="btn btn-success">Add to Favourites <i
+                        class="fa fa-heart"></i></button>
+                  </div>
+            </div>
+            <div class="col-sm-4 card-padding">
+                <div class="card">
+                    <img src="images/indian.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      <h5 class="card-title">Paneer Butter Masala</h5><h6 style="color: red;"> Indian</h6>
+                      <p class="card-text">
+                        Paneer butter masala is an Ind ian dish of marinated paneer cheese
+                        served in a spiced gravy. <span id="dots3">...</span><span id="more3" class="more"> It is a vegetarian alternative to chicken
+                        tikka masala. Ingredients: Spice, Garlic, Tomato, Paneer, Price: Rs
+                        135, Source-Vegetarian, Customer Reviews: 1) Very Good, 2) Awesome.
+                      </span>
+                      </p>
+                      <button onclick="myFunction(document.getElementById('dots3'), document.getElementById('more3'), document.getElementById('myBtn3'))" class="btn btn-primary" id="myBtn3">View More</button>
+                    </div>
+                    <button type="button" class="btn btn-success">Add to Favourites <i
+                        class="fa fa-heart"></i></button>
+                  </div>
+            </div>
+            <div class="col-sm-4 card-padding">
+                <div class="card">
+                    <img src="images/indian.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      <h5 class="card-title">Paneer Butter Masala</h5><h6 style="color: red;"> Indian</h6>
+                      <p class="card-text">
+                        Paneer butter masala is an Ind ian dish of marinated paneer cheese
+                        served in a spiced gravy. <span id="dots4">...</span><span id="more4" class="more"> It is a vegetarian alternative to chicken
+                        tikka masala. Ingredients: Spice, Garlic, Tomato, Paneer, Price: Rs
+                        135, Source-Vegetarian, Customer Reviews: 1) Very Good, 2) Awesome.
+                      </span>
+                      </p>
+                      <button onclick="myFunction(document.getElementById('dots4'), document.getElementById('more4'), document.getElementById('myBtn4'))" class="btn btn-primary" id="myBtn4">View More</button>
+                    </div>
+                    <button type="button" class="btn btn-success">Add to Favourites <i
+                        class="fa fa-heart"></i></button>
+                  </div>
+            </div>
+        </div>
+    </section>-->
+
     <section id="cuisines" class="container">
       <h1 class="text-center">Cuisines Offered</h1>
       <hr />
@@ -82,11 +184,9 @@
         <h2 class="text-center">Indian</h2>
         <br />
         <br />
-        <div id="indian"></div>
+        <div class="row" id="indian"></div>
         <div id="dotsf1"></div>
-        <div id="indianHide" class="more">
-          <br />
-        </div>
+        <div id="indianHide" class="row more"></div>
         <button
           onclick="myFunctionFull(document.getElementById('dotsf1'), document.getElementById('indianHide'), document.getElementById('myBtnf1'))"
           class="btn btn-primary"
@@ -101,11 +201,9 @@
         <h2 class="text-center">Italian</h2>
         <br />
         <br />
-        <div id="italian"></div>
+        <div class="row" id="italian"></div>
         <div id="dotsf2"></div>
-        <div id="italianHide" class="more">
-          <br />
-        </div>
+        <div id="italianHide" class="row more"></div>
         <button
           onclick="myFunctionFull(document.getElementById('dotsf2'), document.getElementById('italianHide'), document.getElementById('myBtnf2'))"
           class="btn btn-primary"
@@ -120,11 +218,9 @@
         <h2 class="text-center">Chinese</h2>
         <br />
         <br />
-        <div id="chinese"></div>
+        <div class="row" id="chinese"></div>
         <div id="dotsf3"></div>
-        <div id="chineseHide" class="more">
-          <br />
-        </div>
+        <div id="chineseHide" class="row more"></div>
         <button
           onclick="myFunctionFull(document.getElementById('dotsf3'), document.getElementById('chineseHide'), document.getElementById('myBtnf3'))"
           class="btn btn-primary"
@@ -139,11 +235,9 @@
         <h2 class="text-center">Continental</h2>
         <br />
         <br />
-        <div id="continental"></div>
+        <div class="row" id="continental"></div>
         <div id="dotsf4"></div>
-        <div id="continentalHide" class="more">
-          <br />
-        </div>
+        <div id="continentalHide" class="row more"></div>
         <button
           onclick="myFunctionFull(document.getElementById('dotsf4'), document.getElementById('continentalHide'), document.getElementById('myBtnf4'))"
           class="btn btn-primary"
@@ -183,7 +277,7 @@
 
     <!-- JS -->
     <script>
-      function myFunction(dots, moreText, btnText) {
+      /*function myFunction(dots, moreText, btnText) {
         if (dots.style.display === "none") {
           dots.style.display = "inline";
           btnText.innerHTML = "View More";
@@ -193,7 +287,7 @@
           btnText.innerHTML = "View Less";
           moreText.style.display = "inline";
         }
-      }
+      }*/
       function myFunctionFull(dots, moreText, btnText) {
         if (dots.style.display === "none") {
           dots.style.display = "inline";
@@ -202,7 +296,7 @@
         } else {
           dots.style.display = "none";
           btnText.innerHTML = "View Less";
-          moreText.style.display = "inline";
+          moreText.style.display = "flex";
         }
       }
     </script>
@@ -236,22 +330,6 @@
         });
       }
 
-      function showModal(item, description, id) {
-        var content = ` <div class="modal">
-  <div class="modal-header">
-    <span class="close-btn">&times;</span>
-    <h1>${item}</h1>
-  </div>
-  <div class="modal-content">
-    <p>${description}</p>
-  </div>
-  <div class="modal-footer">
-    <h2>I am the Footer</h2>
-  </div>
-</div>`;
-
-        document.getElementById("seeModal").innerHTML += content;
-      }
       $(document).ready(() => {
         var countindian = 0;
         var countitalian = 0;
@@ -265,117 +343,50 @@
             json.fList.forEach((entry, i) => {
               console.log(entry["_id"]);
               console.log(i);
-              var content;
-              if (i % 2 == 0) {
-                content = `
-                <div class="row">
-        <div class="col-sm-6 cuisines-column text-center">
-          <img
-            src="images/indian.jpg"
-            alt="image"
-            class="img-fluid img-responsive"
-          />
-        </div>
-        <div class="col-sm-6 cuisines-column text-center">
-          <h4>${entry["item"]}</h4>
-          <p class="cuisines-description">
-            ${entry["description"].substring(0, 30)}
-            <span id="dots${entry["_id"]}">...</span
-            ><span id="more${entry["_id"]}" class="more">
-                ${entry["description"].substring(30)}
-              <br /><br />
-              <button type="button" onclick="addtofav('${
+              var content = `
+              <div class="col-sm-4 card-padding">
+                <div class="card">
+                    <img src="images/indian.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      <h5 class="card-title">${
+                        entry["item"]
+                      }</h5><h6 style="color: red;"> ${entry["cuisine"]}</h6>
+                      <p class="card-text">
+                        ${entry["description"].substring(0, 30)}<span id="dots${
                 entry["_id"]
-              }')" class="btn btn-success">
-                Add to Favourites <i class="fa fa-heart"></i>
-              </button>
-            </span>
-          </p>
-          <button
-            onclick="myFunction(document.getElementById('dots${
-              entry["_id"]
-            }'), document.getElementById('more${
-                  entry["_id"]
-                }'), document.getElementById('myBtn${entry["_id"]}'))"
-            class="btn btn-primary"
-            id="myBtn${entry["_id"]}"
-          >
-            View More
-          </button>
-        </div>
-      </div>
-      <hr />
-    `;
-              } else {
-                content = `
-                <div class="row">
-                  <div class="col-sm-6 cuisines-column text-center specialimg">
-          <img
-            src="images/indian.jpg"
-            alt="image"
-            class="img-fluid img-responsive"
-          />
-        </div>
-        <div class="col-sm-6 cuisines-column text-center">
-          <h4>${entry["item"]}</h4>
-          <p class="cuisines-description">
-            ${entry["description"].substring(0, 30)}
-            <span id="dots${entry["_id"]}">...</span
-            ><span id="more${entry["_id"]}" class="more">
-                ${entry["description"].substring(30)}
-              <br /><br />
-              <button type="button" onclick="addtofav('${
-                entry["_id"]
-              }')" class="btn btn-success">
-                Add to Favourites <i class="fa fa-heart"></i>
-              </button>
-            </span>
-          </p>
-          <button
-          onclick="myFunction(document.getElementById('dots${
-            entry["_id"]
-          }'), document.getElementById('more${
-                  entry["_id"]
-                }'), document.getElementById('myBtn${entry["_id"]}'))"
-            class="btn btn-primary"
-            id="myBtn${entry["_id"]}"
-          >
-            View More
-          </button>
-        </div>
-        <div class="col-sm-6 cuisines-column text-center specialimg1">
-          <img
-            src="images/indian.jpg"
-            alt="image"
-            class="img-fluid img-responsive"
-          />
-        </div>
-      
-      </div>
-      <hr />
-    `;
-              }
+              }">...</span><span id="more${entry["_id"]}" class="more">${entry[
+                "description"
+              ].substring(30)}<br /><br /></span>
+                      </p>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">View More</button>
+                    </div>
+                    <button type="button" onclick="addtofav('${
+                      entry["_id"]
+                    }')" class="btn btn-success">Add to Favourites <i
+                        class="fa fa-heart"></i></button>
+                  </div>
+            </div>
+              `;
               // Construct card content
-              //console.log('ffffff   ' + this[`countindian`])
-              if (entry[`cuisine`] == "indian" && countindian < 2) {
+              if (entry[`cuisine`] == "indian" && countindian < 3) {
                 document.getElementById(
                   `${entry[`cuisine`]}`
                 ).innerHTML += content;
                 countindian++;
-              } else if (entry[`cuisine`] == "italian" && countitalian < 2) {
+              } else if (entry[`cuisine`] == "italian" && countitalian < 3) {
                 document.getElementById(
                   `${entry[`cuisine`]}`
                 ).innerHTML += content;
                 countitalian++;
               } else if (
                 entry[`cuisine`] == "continental" &&
-                countcontinental < 2
+                countcontinental < 3
               ) {
                 document.getElementById(
                   `${entry[`cuisine`]}`
                 ).innerHTML += content;
                 countcontinental++;
-              } else if (entry[`cuisine`] == "chinese" && countchinese < 2) {
+              } else if (entry[`cuisine`] == "chinese" && countchinese < 3) {
                 document.getElementById(
                   `${entry[`cuisine`]}`
                 ).innerHTML += content;

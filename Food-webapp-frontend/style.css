@@ -10,6 +10,7 @@ html,body
     overflow-x: hidden;
     padding-bottom: 0px;
 }
+
 /*Navbar*/
 .nvbr{
     width: 100%;
@@ -19,16 +20,18 @@ html,body
 .more {
     display: none;
 }
-
+.bcolour{
+    color: black;
+}
 
 /*Cuisines*/
 #cuisines{
     margin-top: 50px;
 }
-#cuisines img{
+/*#cuisines img{
     width:65%;
     text-align: center;
-}
+}*/
 #cuisines ul{
     list-style-type: none;
 }
@@ -45,9 +48,13 @@ html,body
 .buttonchan{
     border-radius: 25px;
 }
-img{
-    border-radius: 25%;
+.card-padding{
+    padding: 20px;
 }
+
+/*img{
+    border-radius: 25%;
+}*/
 
 /* Footer */
 footer{
