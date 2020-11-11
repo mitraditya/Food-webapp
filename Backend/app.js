@@ -28,22 +28,23 @@ app.post('/favFoodList', async (req, res) =>{
     foodList.findById(mongoose.Types.ObjectId(req.query.id), async function (err, doc){
         if(err){
             console.log(err)
-            res.send("Not found")
+            res.json({message: 'Not found'});
         }else{
         favFoodList.exists({ oldid: doc._id }, async function(err, result) {
             if (err) {
                 console.log(err)
-                res.send("Error")
+                res.json({message: 'Error'});
             } else {
                 if(result==false){
                     //create new entry in favFoodList
-                    await favFoodList.create({ oldid: doc._id, item: doc.item, cuisine: doc.cuisine})
-                    res.send("Entry created")
+                    await favFoodList.create({ oldid: doc._id, item: doc.item, cuisine: doc.cuisine, description: doc.description})
+                    console.log("Entry Created")
+                    res.json({message: 'Entry created'});
                 }
                 else{
                     //return saying that it is already added to favourites
                     console.log("Already exists");
-                    res.send("Already exists");
+                    res.json({message: 'Already exists'});
                 }
             }
           });
@@ -71,6 +72,9 @@ app.delete('/deleteitem', async (req, res) => {
         res.send("Successfully Deleted")}
       }
 )})
+
+//User Authentication
+
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`))

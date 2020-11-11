@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+
+  <title>Food Webapp</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Food WebApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="indian.html">Indian</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="italian.html">Italian</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="chinese.html">Chinese</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="continental.html">Continental</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="favourites.html">Favourite Food List</a>
+        </li>
+      </ul>
+      <button class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="submit">Log In</button>
+      <button class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="submit">Sign Up</button>
+    </div>
+  </nav>
+
+  <!-- Modal -->
+  <div id="modalparent"></div>
+
+  <!-- Cuisines -->
+  <section id="cuisines" class="container">
+    <h1 class="text-center">Cuisines Offered</h1>
+    <hr />
+    <br />
+    <div id="IndianRoot">
+      <h2 class="text-center">Indian</h2>
+      <br />
+      <br />
+      <div class="row" id="Indian"></div>
+      <div id="dotsf1"></div>
+      <div id="IndianHide" class="row more"></div>
+      <button
+        onclick="myFunctionFull(document.getElementById('dotsf1'), document.getElementById('IndianHide'), document.getElementById('myBtnf1'))"
+        class="btn btn-primary" id="myBtnf1">
+        View Full List
+      </button>
+      <hr />
+      <br />
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="row">
+      <div class="col-sm-4 footer-column">
+        <h1 class="footer-h1">Food WebApp</h1>
+      </div>
+      <div class="col-sm-4 footer-column">
+        <h2>Links</h2>
+        <hr />
+        <a href="#">About</a><br />
+        <a href="#">Privacy Policy</a><br />
+        <a href="#">Terms and Conditions</a>
+      </div>
+      <div class="col-sm-4 footer-column">
+        <h2>Contact Us</h2>
+        <hr />
+        <a href="#">Phone</a><br />
+        <a href="#">Email</a>
+      </div>
+    </div>
+    <p class="text-center">
+      Copyright &copy; Food WebApp 2020. Made with &hearts; by Aditya Mitra.
+    </p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    /*function myFunction(dots, moreText, btnText) {
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "View More";
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "View Less";
+        moreText.style.display = "inline";
+      }
+    }*/
+    function myFunctionFull(dots, moreText, btnText) {
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "View Full List";
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "View Less";
+        moreText.style.display = "flex";
+      }
+    }
+  </script>
+
+  <!-- AOS Library-->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+
+  <script>
+    async function addtofav(id) {
+      await fetch(`http://localhost:3000/favFoodList?id=${id}`, {
+        method: "POST",
+      }).then((res) => {
+        console.log(res);
+      });
+    }
+
+    async function clean(){
+      document.getElementById("modalparent").innerHTML = ``;
+    }
+
+    async function insertmodal(name, description, id, cuisine) {
+      var content = `<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">${name}</h5>
+        <button type="button" onclick="clean()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="images/indian.jpg" class="card-img-top" alt="..." /><br/><br/><h6 style="color: red;">${cuisine}</h6>
+        ${description}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="clean()" data-dismiss="modal">View Less</button>
+        <button type="button" class="btn btn-success" onclick="addtofav('${id}')">Add to Favourites <i class="fa fa-heart"></i></button>
+      </div>
+    </div>
+  </div>
+</div>`;
+      document.getElementById("modalparent").innerHTML += content;
+    }
+
+    $(document).ready(() => {
+      var countIndian = 0;
+      fetch("http://localhost:3000/")
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json.fList);
+          const container = document.getElementById("cuisines");
+          json.fList.forEach((entry, i) => {
+            console.log(entry["_id"]);
+            console.log(i);
+            var content = `
+              <div class="col-sm-4 card-padding">
+                <div class="card">
+                    <img src="images/indian.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      <h5 class="card-title">${entry["item"]
+              }</h5><h6 style="color: red;"> ${entry["cuisine"]}</h6>
+                      <p class="card-text">
+                        ${entry["description"].substring(0, 30)}...
+                      </p>
+              <button type="button" class="btn btn-primary" onclick="insertmodal('${entry["item"]}', '${entry["description"]}', '${entry["_id"]}', '${entry["cuisine"]}')" data-toggle="modal" data-target="#exampleModal">View More</button>
+                    </div>
+                    <button type="button" onclick="addtofav('${entry["_id"]
+              }')" class="btn btn-success">Add to Favourites <i
+                        class="fa fa-heart"></i></button>
+                  </div>
+            </div>
+              `;
+            // Construct card content
+            if (entry[`cuisine`] == "Indian" && countIndian < 3) {
+              document.getElementById(
+                `${entry[`cuisine`]}`
+              ).innerHTML += content;
+              countIndian++;
+            }  else if(entry[`cuisine`] == "Indian"){
+              document.getElementById(
+                `${entry[`cuisine`]}Hide`
+              ).innerHTML += content;
+            }
+          });
+        });
+      // fetch('',{method: "get", mode:"no-cors"}).then((response)=>{
+      //     console.log(response);
+      // })
+    });
+  </script>
+
+  <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

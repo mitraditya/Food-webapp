@@ -12,6 +12,10 @@ const favFoodListSchema = new mongoose.Schema({
     cuisine: {
         type: String,
         required: true
+    },
+    description: {
+        type: String,
+        required: true
     }
 })
 
