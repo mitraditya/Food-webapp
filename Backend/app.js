@@ -14,10 +14,10 @@ mongoose.connect(MONGO_URL, {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
 
-app.get('/', async (req, res) =>{
-    const fList = await foodList.find()
-    res.json({message: 'Hello World', fList: fList});
-})
+// app.get('/', async (req, res) =>{
+//     const fList = await foodList.find()
+//     res.json({message: 'Hello World', fList: fList});
+// })
 
 app.post('/foodList', async (req, res) =>{
     await foodList.create({ item: req.body.item, description: req.body.description, cuisine: req.body.cuisine})
@@ -74,7 +74,88 @@ app.delete('/deleteitem', async (req, res) => {
 )})
 
 //User Authentication
+if(process.env.NODE_ENV !== 'production'){
+    require('dotenv').config()
+}
 
+const bcrypt = require('bcrypt');
+const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
+const methodOverride = require('method-override')
+const users = require('./users')
+
+const initializePassport = require('./passport-config');
+initializePassport(passport,
+    async email => await users.find({email: email}),
+    async id => await users.findById(id) 
+);
+
+app.use(flash())
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(methodOverride('_method'))
+
+app.get('/', async (req, res) =>{
+    const fList = await foodList.find()
+    if(req.isAuthenticated()){
+        res.json({message: 'Hello World', fList: fList, name : req.user.name })
+    }
+    else{
+        res.json({message: 'Hello World', fList: fList})
+    }
+})
+
+app.get('/login', checkNotAuthenticated, async(req, res) => {
+    const uList = await users.find()
+    res.json({uList: uList})
+});
+
+app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: 'login',
+    failureFlash: true
+}));
+
+app.get('/register', checkNotAuthenticated, async(req, res) => {
+    const uList = await users.find()
+    res.json({uList: uList})
+});
+
+app.post('/register', checkNotAuthenticated, async(req, res) => {
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        const user = await users.create({ name: req.body.name, email: req.body.email, password: hashedPassword})
+        console.log(user)
+        res.redirect('../Frontend/login.html');
+    } catch {
+        res.redirect('/register');
+    }
+});
+
+app.delete('/logout', (req, res) => {
+    req.logOut()
+    res.redirect('/login')
+})
+
+function checkAuthenticated(req, res, next){
+    if(req.isAuthenticated()){
+        return next()
+    }
+    res.redirect('login')
+}
+
+function checkNotAuthenticated(req, res, next){
+    if(req.isAuthenticated()){
+        return res.redirect('/')
+    }
+    next()
+}
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`))
