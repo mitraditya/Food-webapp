@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-6 solid">
-                <form action="http://localhost:3000/register" method="POST">
+                <form> 
                     <div class="form-group">
                         <label for="name">Name</label><br>
                         <input type="text" class="form-control" id="name" name="name" required>
@@ -39,8 +39,8 @@
                         <label for="password">Password</label><br>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Register</button>
-                </form><br>
+                    
+                </form><button onclick="adduser()" class="btn btn-primary">Register</button><br>
                 <a href="login.html">Log in</a>
             </div>
             <div class="col-lg-3"></div>
@@ -48,12 +48,24 @@
     </div>
 
     <script>
-        $(document).ready(() => {
-      fetch("http://localhost:3000/register")
-        .then((response) => response.json())
-        .then((json) => {
-            console.log(json)
-        })})
+
+async function adduser() {
+      fetch(`http://localhost:3000/register`, {
+        method: "POST",
+        headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    }, body: JSON.stringify({name: document.getElementById("name").value, email: document.getElementById("email").value, password: document.getElementById("password").value})
+      }).then((response) => response.json())
+          .then((json) => {
+            if(json[`success`] == `true`)
+         window.location.href="login.html"
+         else
+         alert('Registration failed')
+          })
+        //     
+      //});
+    }
     </script>
 
     <!-- Optional JavaScript; choose one of the two! -->

@@ -100,7 +100,7 @@
 
         <script>
             async function deletefav(id) {
-             await fetch(`http://localhost:3000/deleteitem/?id=${id}`, {method:"DELETE"}).then((res)=>{
+             await fetch(`http://localhost:3000/deleteitem/?id=${id}&uid=${localStorage.getItem('id')}`, {method:"DELETE"}).then((res)=>{
                  console.log(res)
                  location.reload();
              })
@@ -133,7 +133,7 @@
         document.getElementById("modalparent").innerHTML += content;
       }
          $(document).ready(() => {
-               fetch("http://localhost:3000/favFoodList")
+               fetch(`http://localhost:3000/favFoodList?id=${localStorage.getItem('id')}`)
              .then((response) => response.json())
              .then((json) => {
                console.log(json.favList);
@@ -154,12 +154,12 @@
                       </p>
               <button type="button" class="btn btn-primary" onclick="insertmodal('${
                 entry["item"]
-              }', '${entry["description"]}', '${entry["_id"]}', '${
+              }', '${entry["description"]}', '${entry["oldid"]}', '${
                 entry["cuisine"]
               }')" data-toggle="modal" data-target="#exampleModal">View More</button>
                     </div>
                     <button type="button" onclick="deletefav('${
-                      entry["_id"]
+                      entry["oldid"]
                     }')" class="btn btn-danger">Delete <i class="fa fa-heart"></i></button>
                   </div>
             </div>

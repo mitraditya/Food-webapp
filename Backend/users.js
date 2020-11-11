@@ -12,6 +12,10 @@ const usersSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    addtofavlist: {
+        type: Array,
+        required: false
     }
 })
 
