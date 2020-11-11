@@ -1,1 +1,1 @@
-A basic Food WebApp.
+A Food WebApp made using HTML, CSS, Bootstrap, JavaScript, Node, Express and MongoDB.

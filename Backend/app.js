@@ -169,7 +169,8 @@ app.post('/login', function (req, res) {
             if(err) throw err;
             if(isMatch){
                 console.log('match')
-                res.json({id:user[0]._id})
+                console.log(user[0]._id + '  '+ user[0].name)
+                res.json({id:user[0]._id, name:user[0].name})
             }
         })}
         

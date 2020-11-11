@@ -47,13 +47,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="indian.html">Indian</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="italian.html">Italian</a>
         </li>
         <li class="nav-item">
@@ -95,28 +95,8 @@
 
     <!-- Cuisines -->
     <section id="cuisines" class="container">
-      <h1 class="text-center">Cuisines Offered</h1>
-      <hr />
-      <br />
-      <div id="IndianRoot">
-        <h2 class="text-center">Indian</h2>
-        <br />
-        <br />
-        <div class="row" id="Indian"></div>
-        <div id="dotsf1"></div>
-        <div id="IndianHide" class="row more"></div>
-        <button
-          onclick="myFunctionFull(document.getElementById('dotsf1'), document.getElementById('IndianHide'), document.getElementById('myBtnf1'))"
-          class="btn btn-primary"
-          id="myBtnf1"
-        >
-          View Full List
-        </button>
-        <hr />
-        <br />
-      </div>
       <div id="ItalianRoot">
-        <h2 class="text-center">Italian</h2>
+        <h1 class="text-center">The Italian Cuisine</h1><hr>
         <br />
         <br />
         <div class="row" id="Italian"></div>
@@ -126,40 +106,6 @@
           onclick="myFunctionFull(document.getElementById('dotsf2'), document.getElementById('ItalianHide'), document.getElementById('myBtnf2'))"
           class="btn btn-primary"
           id="myBtnf2"
-        >
-          View Full List
-        </button>
-        <hr />
-        <br />
-      </div>
-      <div id="ChineseRoot">
-        <h2 class="text-center">Chinese</h2>
-        <br />
-        <br />
-        <div class="row" id="Chinese"></div>
-        <div id="dotsf3"></div>
-        <div id="ChineseHide" class="row more"></div>
-        <button
-          onclick="myFunctionFull(document.getElementById('dotsf3'), document.getElementById('ChineseHide'), document.getElementById('myBtnf3'))"
-          class="btn btn-primary"
-          id="myBtnf3"
-        >
-          View Full List
-        </button>
-        <hr />
-        <br />
-      </div>
-      <div id="ContinentalRoot">
-        <h2 class="text-center">Continental</h2>
-        <br />
-        <br />
-        <div class="row" id="Continental"></div>
-        <div id="dotsf4"></div>
-        <div id="ContinentalHide" class="row more"></div>
-        <button
-          onclick="myFunctionFull(document.getElementById('dotsf4'), document.getElementById('ContinentalHide'), document.getElementById('myBtnf4'))"
-          class="btn btn-primary"
-          id="myBtnf4"
         >
           View Full List
         </button>
@@ -293,7 +239,7 @@
         const messageinner = $("#messageinner");
         message.hide();
         if(localStorage.getItem("id")!=null){
-          document.getElementById("buttons1").innerHTML = `<span style="color:white;">Welcome ${localStorage.getItem("name")}!</span>   <button id="logoutbutton" onclick="logout('${localStorage.getItem("id")}', '${localStorage.getItem("name")}')" class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="button">      Log Out</button>`;
+          document.getElementById("buttons1").innerHTML = `Hello ${localStorage.getItem("name")}   <button id="logoutbutton" onclick="logout('${localStorage.getItem("id")}', '${localStorage.getItem("name")}')" class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="button">      Log Out</button>`;
 
         }
         const displayMessage = (msg) => {
@@ -337,30 +283,12 @@
             </div>
               `;
               // Construct card content
-              if (entry[`cuisine`] == "Indian" && countIndian < 3) {
-                document.getElementById(
-                  `${entry[`cuisine`]}`
-                ).innerHTML += content;
-                countIndian++;
-              } else if (entry[`cuisine`] == "Italian" && countItalian < 3) {
+              if (entry[`cuisine`] == "Italian" && countItalian < 3) {
                 document.getElementById(
                   `${entry[`cuisine`]}`
                 ).innerHTML += content;
                 countItalian++;
-              } else if (
-                entry[`cuisine`] == "Continental" &&
-                countContinental < 3
-              ) {
-                document.getElementById(
-                  `${entry[`cuisine`]}`
-                ).innerHTML += content;
-                countContinental++;
-              } else if (entry[`cuisine`] == "Chinese" && countChinese < 3) {
-                document.getElementById(
-                  `${entry[`cuisine`]}`
-                ).innerHTML += content;
-                countChinese++;
-              } else {
+              }  else if(entry[`cuisine`] == "Italian"){
                 document.getElementById(
                   `${entry[`cuisine`]}Hide`
                 ).innerHTML += content;

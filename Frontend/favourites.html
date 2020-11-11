@@ -21,7 +21,7 @@
 
 <body>
 
-    <!-- navbar -->
+     <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="#">Food WebApp</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -49,8 +49,10 @@
           <a class="nav-link" href="favourites.html">Favourite Food List</a>
         </li>
       </ul>
-      <button class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="submit">Log In</button>
-      <button class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="submit">Sign Up</button>
+      <div id="buttons1">
+        <button id="loginbutton" onclick="location.href='login.html'" class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="button">Log In</button>
+      <button id="registerbutton" onclick="location.href='register.html'" class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="button">Sign Up</button>
+      </div>
     </div>
   </nav>
 
@@ -105,6 +107,13 @@
                  location.reload();
              })
          }
+         async function logout(id) {
+        console.log(id);
+        localStorage.removeItem("id")
+        localStorage.removeItem("name")
+        document.getElementById("buttons1").innerHTML = `<button id="loginbutton" onclick="location.href='login.html'" class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="button">Log In</button>
+      <button id="registerbutton" onclick="location.href='register.html'" class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="button">Sign Up</button>`;
+      }
          async function clean() {
         document.getElementById("modalparent").innerHTML = ``;
       }
@@ -133,6 +142,10 @@
         document.getElementById("modalparent").innerHTML += content;
       }
          $(document).ready(() => {
+          if(localStorage.getItem("id")!=null){
+          document.getElementById("buttons1").innerHTML = `Hello ${localStorage.getItem("name")}   <button id="logoutbutton" onclick="logout('${localStorage.getItem("id")}', '${localStorage.getItem("name")}')" class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="button">      Log Out</button>`;
+
+        }
                fetch(`http://localhost:3000/favFoodList?id=${localStorage.getItem('id')}`)
              .then((response) => response.json())
              .then((json) => {
