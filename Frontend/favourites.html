@@ -143,7 +143,7 @@
       }
          $(document).ready(() => {
           if(localStorage.getItem("id")!=null){
-          document.getElementById("buttons1").innerHTML = `Hello ${localStorage.getItem("name")}   <button id="logoutbutton" onclick="logout('${localStorage.getItem("id")}', '${localStorage.getItem("name")}')" class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="button">      Log Out</button>`;
+          document.getElementById("buttons1").innerHTML = `<span style="color:white;">Welcome ${localStorage.getItem("name")}!</span>     <button id="logoutbutton" onclick="logout('${localStorage.getItem("id")}', '${localStorage.getItem("name")}')" class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="button">      Log Out</button>`;
 
         }
                fetch(`http://localhost:3000/favFoodList?id=${localStorage.getItem('id')}`)
