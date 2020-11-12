@@ -34,10 +34,11 @@
                         <label for="password">Password</label><br>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
-                    <div style="display: inline; margin-left:2.5em; color: red;">
-                    </div>
                 </form>
-                <button onclick="loginuser()" class="btn btn-primary">Log in</button><br>
+                <button onclick="loginuser()" class="btn btn-primary">Log in</button>
+                <div id="messageshow" style="display: inline; margin-left:2.5em; color: red;">
+                </div>
+                <br><br>
                 <a href="register.html">New? Create an account.</a>
             </div>
             <div class="col-lg-3"></div>
@@ -55,10 +56,15 @@
             }, body: JSON.stringify({email: document.getElementById("email").value, password: document.getElementById("password").value})
               }).then((response) => response.json())
                   .then((json) => {
-                    console.log(json)
-                    localStorage.setItem("id", json.id)
-                    localStorage.setItem("name", json.name)
-                    window.location.href="index.html"
+                      if(json.success){
+                          localStorage.setItem("id", json.id)
+                          localStorage.setItem("name", json.name)
+                          window.location.href="index.html"
+                      }
+                      else{
+                          console.log(json.message)
+                          document.getElementById("messageshow").innerHTML = `${json.message}`;
+                      }
                   })
                 //     
               //});
