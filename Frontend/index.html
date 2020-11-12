@@ -231,6 +231,7 @@
           .then((json) => {
             console.log(json);
             alert(json.message)
+            location.reload();
           });
       }
 
@@ -274,7 +275,6 @@
       $(document).ready(() => {
         if(localStorage.getItem("id")!=null){
           document.getElementById("buttons1").innerHTML = `<span style="color:white;">Welcome ${localStorage.getItem("name")}!</span>   <button id="logoutbutton" onclick="logout('${localStorage.getItem("id")}', '${localStorage.getItem("name")}')" class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="button">      Log Out</button>`;
-
         }
         var countIndian = 0;
         var countItalian = 0;
@@ -305,7 +305,7 @@
                 entry["cuisine"]
               }')" data-toggle="modal" data-target="#exampleModal">View More</button>
                     </div>
-                    <button type="button" onclick="addtofav('${
+                    <button id="${entry["_id"]}" type="button" onclick="addtofav('${
                       entry["_id"]
                     }')" class="btn btn-success">Add to Favourites <i class="fa fa-heart"></i></button>
                   </div>
@@ -338,6 +338,27 @@
               } else {
                 document.getElementById(`${entry[`cuisine`]}Hide`).innerHTML += content;
               }
+
+              if(localStorage.getItem("id")!=null){
+            fetch(`http://localhost:3000/favFoodList?id=${localStorage.getItem('id')}`)
+             .then((res) => res.json())
+             .then((jsonfav) => {
+               console.log(jsonfav)
+               var f = false
+               console.log(entry["_id"] + '  ' + entry["item"])
+               jsonfav.favList.forEach((faventry, j) => {
+                 if(faventry["oldid"]==entry["_id"]){
+                   f = true
+                 }
+               })
+               console.log(f)
+               if(f){
+                document.getElementById(entry["_id"]).innerHTML = `Added to Favourites<i class="fa fa-heart"></i>`;
+                document.getElementById(entry["_id"]).classList.remove("btn-success");
+                document.getElementById(entry["_id"]).classList.add("btn-danger");
+               }
+             }
+             )}
             });
           });
       });
