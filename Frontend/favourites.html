@@ -102,9 +102,11 @@
 
         <script>
             async function deletefav(id) {
-             await fetch(`http://localhost:3000/deleteitem/?id=${id}&uid=${localStorage.getItem('id')}`, {method:"DELETE"}).then((res)=>{
-                 console.log(res)
+             await fetch(`http://localhost:3000/deleteitem/?id=${id}&uid=${localStorage.getItem('id')}`, {method:"DELETE"}).then((res)=> res.json())
+             .then((json) =>{
+                 console.log(json)
                  location.reload();
+                 alert(json.message)
              })
          }
          async function logout(id) {
@@ -113,7 +115,8 @@
         localStorage.removeItem("name")
         document.getElementById("buttons1").innerHTML = `<button id="loginbutton" onclick="location.href='login.html'" class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="button">Log In</button>
       <button id="registerbutton" onclick="location.href='register.html'" class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="button">Sign Up</button>`;
-      }
+      location.reload()
+    }
          async function clean() {
         document.getElementById("modalparent").innerHTML = ``;
       }
@@ -152,7 +155,7 @@
                console.log(json.favList);
                const container = document.getElementById("display");
                json.favList.forEach((entry, i) => {
-                 console.log(entry["_id"]);
+                 console.log(entry["oldid"]);
                  console.log(i);
                  var content = `
               <div class="col-sm-4 card-padding">

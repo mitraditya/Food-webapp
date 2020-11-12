@@ -24,23 +24,18 @@ app.post("/foodList", async (req, res) => {
 });
 
 app.post("/favFoodList", async (req, res) => {
-  foodList.findById(mongoose.Types.ObjectId(req.query.id), async function (
-    err,
-    doc
-  ) {
+  await foodList.findById(mongoose.Types.ObjectId(req.query.id), async function (err,doc) {
     if (err) {
       console.log(err);
-      res.json({ message: "Not found" });
+      console.log("Item not found")
+      res.json({ message: "Item Not found" });
     } else {
-      users.findById(mongoose.Types.ObjectId(req.query.uid), async function (
-        err,
-        quser
-      ) {
+      await users.findById(mongoose.Types.ObjectId(req.query.uid), async function (err,quser) {
         if (err) {
           console.log(err);
+          console.log("User Not Found")
           res.json({ message: "User Not Found" });
         } else {
-          console.log(quser);
           var entry = {
             oldid: doc._id,
             item: doc.item,
@@ -49,22 +44,24 @@ app.post("/favFoodList", async (req, res) => {
           };
           var flag = false;
           if (quser.addtofavlist) {
-            quser.addtofavlist.forEach((qentry) => {
-              if (qentry.oldid == doc._id) {
-                res.json({ message: "Already added" });
-                flag = true;
+            await quser.addtofavlist.forEach((qentry) => {
+              if (String(qentry.oldid) === String(doc._id)) {
+                  console.log("Already Added")
+                  flag = true;
+                  res.json({ message: "Already added to Favourites" });
               }
             });
           }
-          if (flag === false) {
+          if (flag == false) {
             var update = quser;
             update.addtofavlist.push(entry);
-            users.findByIdAndUpdate(quser._id, update).then((err, res) => {
+            await users.findByIdAndUpdate(quser._id, update, (err, resp) => {
               if (err) {
-                console.log(err);
-              } else if (res) {
-                console.log(res);
-                res.json({ message: "Entry created" });
+                  console.log(err);
+                  console.log("Error in creating")
+              } else if (resp) {
+                  console.log("Entry Created")
+                  res.json({ message: "Added to Favourites" });
               }
             });
           }
@@ -81,23 +78,34 @@ app.get("/foodList", async (req, res) => {
 
 app.get("/favFoodList", async (req, res) => {
   await users.findById(req.query.id, async (err, quser) => {
-    res.json({ favList: quser.addtofavlist });
+      if(err){
+        console.log(err);
+        console.log("User Not Found")
+        res.json({ message: "User Not Found" });
+      }
+      else{
+        res.json({ favList: quser.addtofavlist });
+      }
   });
 });
 
 app.delete("/deleteitem", async (req, res) => {
   var newList = [];
   await users.findById(req.query.uid, function (err, quser) {
-    quser.addtofavlist.forEach((food) => {
-      if (food.oldid != req.query.id) {
-        newList.push(food);
+    if (err) {
+        console.log(err);
+        console.log("User Not Found")
+        res.json({ message: "User Not Found" });
+      } else{
+        quser.addtofavlist.forEach((food) => {
+            if (food.oldid != req.query.id) {
+              newList.push(food);
+            }
+          });
+          var update = quser;
+          update.addtofavlist = newList;
+          users.findByIdAndUpdate(req.query.uid, update).then(res.json({ message: "Successfully Deleted"} ));
       }
-    });
-    var update = quser;
-    update.addtofavlist = newList;
-    users
-      .findByIdAndUpdate(req.query.uid, update)
-      .then(res.send("Successfully Deleted"));
   });
 });
 
@@ -133,13 +141,10 @@ app.use(passport.session());
 app.use(methodOverride("_method"));
 
 app.get("/", async (req, res) => {
-  const fList = await foodList.find();
-  if (req.isAuthenticated()) {
-    res.json({ message: "Hello World", fList: fList, name: req.user.name });
-  } else {
-    res.json({ message: "Hello World", fList: fList });
+    const fList = await foodList.find();
+    res.json({ fList: fList });
   }
-});
+);
 
 app.get("/login", checkNotAuthenticated, async (req, res) => {
   const uList = await users.find();
