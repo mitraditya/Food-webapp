@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in</title>
+    <title>Add New Item</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -19,53 +19,70 @@
     </style>
 </head>
 <body><br><br>
-    <h1 style="color: green">Please Login/Sign up to access our exciting content!</h1><br><br>
+    <h1 style="color: green">Please fill the form below to add a new food item.</h1><br>
     <div class="container">
-        <h1>Log in</h1><br>
         <div class="row">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-6 solid">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 solid">
                 <form>
                     <div class="form-group">
-                        <label for="email">Email</label><br>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <label for="item">Item Name</label><br>
+                        <input type="item" class="form-control" id="item" name="item" required>
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label><br>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <label for="cuisine">Cuisine</label><br>
+                        <input type="cuisine" class="form-control" id="cuisine" name="cuisine" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label><br>
+                        <input type="description" class="form-control" id="description" name="description" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Image</label><br>
+                        <input type="img" class="form-control" id="image" name="image" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ingredients">Ingredients</label><br>
+                        <input type="ingredients" class="form-control" id="ingredients" name="ingredients" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label><br>
+                        <input type="price" class="form-control" id="price" name="price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="review">Review</label><br>
+                        <input type="review" class="form-control" id="review" name="review" required>
                     </div>
                 </form>
-                <button onclick="loginuser()" class="btn btn-primary">Log in</button>
+                <button onclick="additem()" class="btn btn-primary">Submit</button>
                 <div id="messageshow" style="display: inline; margin-left:2.5em; color: red;">
                 </div>
                 <br><br>
-                <a href="register.html">New? Create an account.</a>
             </div>
-            <div class="col-lg-3"></div>
+            <div class="col-lg-2"></div>
         </div>
     </div>
 
     <script>
 
-        async function loginuser() {
-              fetch(`http://localhost:3000/login`, {
+        async function additem() {
+              fetch(`http://localhost:3000/foodList`, {
                 method: "POST",
                 headers: {
               'Content-Type': 'application/json'
               // 'Content-Type': 'application/x-www-form-urlencoded',
-            }, body: JSON.stringify({email: document.getElementById("email").value, password: document.getElementById("password").value})
+            }, body: JSON.stringify({
+                item: document.getElementById("item").value,
+                cuisine: document.getElementById("cuisine").value,
+                description: document.getElementById("description").value,
+                image: document.getElementById("image").value,
+                ingredients: document.getElementById("ingredients").value,
+                price: document.getElementById("price").value,
+                review: document.getElementById("review").value
+            })
               }).then((response) => response.json())
                   .then((json) => {
-                      if(json.success){
-                          localStorage.setItem("id", json.id)
-                          localStorage.setItem("name", json.name)
-                          window.location.href="index.html"
-                      }
-                      else{
-                          console.log(json.message)
-                          document.getElementById("messageshow").innerHTML = `${json.message}`;
-                      }
+                      console.log("Item Added")
                   })
                 //     
               //});

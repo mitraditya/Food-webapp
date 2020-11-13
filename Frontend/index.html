@@ -248,8 +248,10 @@
         document.getElementById("modalparent").innerHTML = ``;
       }
 
-      async function insertmodal(name, description, id, cuisine) {
-        var content = `<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      async function insertmodal(name, description, id, cuisine, image, ingredients, price, review) {
+        var content;
+        if(document.getElementById(id).innerHTML === `Added to Favourites<i class="fa fa-heart"></i>`){
+          content = `<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -259,8 +261,30 @@
         </button>
       </div>
       <div class="modal-body">
-        <img src="images/indian.jpg" class="card-img-top" alt="..." /><br/><br/><h6 style="color: red;">${cuisine}</h6>
-        ${description}
+        <img src="${image}" class="card-img-top" alt="..." /><br/><br/><h6 style="color: red;">${cuisine}</h6>
+        ${description}<br /> <h6 style="color: blue; display: inline;">Ingredients:</h6> ${ingredients} <br /> <h6 style="color: blue; display: inline;">Price:</h6> ${price} <br /> <h6 style="color: blue; display: inline;">Customer Reviews: </h6>${review}<br />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="clean()" data-dismiss="modal">View Less</button>
+        <button type="button" class="btn btn-danger" onclick="addtofav('${id}')">Added to Favourites <i class="fa fa-heart"></i></button>
+      </div>
+    </div>
+  </div>
+</div>`;
+        }
+        else{
+        content = `<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">${name}</h5>
+        <button type="button" onclick="clean()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="${image}" class="card-img-top" alt="..." /><br/><br/><h6 style="color: red;">${cuisine}</h6>
+        ${description}<br /> <h6 style="color: blue; display: inline;">Ingredients:</h6> ${ingredients} <br /> <h6 style="color: blue; display: inline;">Price:</h6> ${price} <br /> <h6 style="color: blue; display: inline;">Customer Reviews: </h6>${review}<br />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" onclick="clean()" data-dismiss="modal">View Less</button>
@@ -268,7 +292,7 @@
       </div>
     </div>
   </div>
-</div>`;
+</div>`;}
         document.getElementById("modalparent").innerHTML += content;
       }
 
@@ -286,12 +310,12 @@
             console.log(json);
             const container = document.getElementById("cuisines");
             json.fList.forEach((entry, i) => {
-              console.log(entry["_id"]);
+              console.log(entry["_id"] +"  "+ entry._id);
               console.log(i);
               var content = `
               <div class="col-sm-4 card-padding">
                 <div class="card">
-                    <img src="images/indian.jpg" class="card-img-top" alt="..." />
+                    <img src="${entry["image"]}" class="card-img-top" alt="..." />
                     <div class="card-body">
                       <h5 class="card-title">${
                         entry["item"]
@@ -303,7 +327,7 @@
                 entry["item"]
               }', '${entry["description"]}', '${entry["_id"]}', '${
                 entry["cuisine"]
-              }')" data-toggle="modal" data-target="#exampleModal">View More</button>
+              }', '${entry["image"]}', '${entry["ingredients"]}', '${entry["price"]}', '${entry["review"]}')" data-toggle="modal" data-target="#exampleModal">View More</button>
                     </div>
                     <button id="${entry["_id"]}" type="button" onclick="addtofav('${
                       entry["_id"]

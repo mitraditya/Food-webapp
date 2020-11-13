@@ -5,7 +5,7 @@ var app = express();
 
 app.use(cors());
 const foodList = require("./foodlist");
-const MONGO_URL = "mongodb://localhost/favfoodlist";
+const MONGO_URL = "mongodb://localhost/foodapp";
 
 mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
@@ -19,6 +19,10 @@ app.post("/foodList", async (req, res) => {
     item: req.body.item,
     description: req.body.description,
     cuisine: req.body.cuisine,
+    image: req.body.image,
+    ingredients: req.body.ingredients,
+    price: req.body.price,
+    review: req.body.review
   });
   res.redirect("/");
 });
@@ -41,6 +45,10 @@ app.post("/favFoodList", async (req, res) => {
             item: doc.item,
             cuisine: doc.cuisine,
             description: doc.description,
+            image: doc.image,
+            ingredients: doc.ingredients,
+            price: doc.price,
+            review: doc.review
           };
           var flag = false;
           if (quser.addtofavlist) {
