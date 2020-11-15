@@ -223,15 +223,17 @@
     ></script>
 
     <script>
-      async function addtofav(id) {
-        await fetch(`http://localhost:3000/favFoodList?id=${id}&uid=${localStorage.getItem('id')}`, {
+      function addtofav(id) {
+        document.getElementById(id).innerHTML = `Added to Favourites<i class="fa fa-heart"></i>`;
+        document.getElementById(id).classList.remove("btn-success");
+        document.getElementById(id).classList.add("btn-danger");
+        fetch(`http://localhost:3000/favFoodList?id=${id}&uid=${localStorage.getItem('id')}`, {
           method: "POST",
         })
           .then((res) => res.json())
           .then((json) => {
             console.log(json);
             alert(json.message)
-            location.reload();
           });
       }
 
@@ -266,7 +268,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" onclick="clean()" data-dismiss="modal">View Less</button>
-        <button type="button" class="btn btn-danger" onclick="addtofav('${id}')">Added to Favourites <i class="fa fa-heart"></i></button>
+        <button id="${id}" type="button" class="btn btn-danger" onclick="addtofav('${id}')">Added to Favourites <i class="fa fa-heart"></i></button>
       </div>
     </div>
   </div>
@@ -288,7 +290,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" onclick="clean()" data-dismiss="modal">View Less</button>
-        <button type="button" class="btn btn-success" onclick="addtofav('${id}')">Add to Favourites <i class="fa fa-heart"></i></button>
+        <button id="${id}" type="button" class="btn btn-success" onclick="addtofav('${id}')">Add to Favourites <i class="fa fa-heart"></i></button>
       </div>
     </div>
   </div>

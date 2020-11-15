@@ -15,16 +15,33 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.post("/foodList", async (req, res) => {
-  await foodList.create({
-    item: req.body.item,
-    description: req.body.description,
-    cuisine: req.body.cuisine,
-    image: req.body.image,
-    ingredients: req.body.ingredients,
-    price: req.body.price,
-    review: req.body.review
-  });
-  res.redirect("/");
+  await users.findById(req.body.id, async function (err, user) {
+    if(err){
+      console.log(err);
+      console.log("User Not Found")
+      res.json({ message: "User Not Found" });
+    }
+    else{
+      if(user.isadmin == true)
+      {
+        await foodList.create({
+          item: req.body.item,
+          description: req.body.description,
+          cuisine: req.body.cuisine,
+          image: req.body.image,
+          ingredients: req.body.ingredients,
+          price: req.body.price,
+          review: req.body.review
+        });
+        console.log("Item Added Successfully")
+        res.json({ message: "Item Added Successfully" });
+      }
+      else{
+        console.log("Unauthorized Access. Creation Denied.")
+        res.json({ message: "Unauthorized Access. Creation Denied." });
+      }
+    }
+  })
 });
 
 app.post("/favFoodList", async (req, res) => {
@@ -163,27 +180,27 @@ app.post("/login", function (req, res) {
   var email = req.body.email;
   var password = req.body.password;
   console.log(email + " " + password);
-  users.find({ email: email }, function (err, user) {
+  users.findOne({ email: email }, function (err, user) {
     if (err) {
       console.log(err);
-    } else if (user.length == 0) {
+    } else if (user == null) {
       console.log("No User with that email");
       return res.json({ success: false, message: "No User with that email" });
     } else if (user) {
       console.log("user found");
 
-      const hash = user[0].password;
+      const hash = user.password;
       bcrypt.compare(password, hash, function (err, isMatch) {
         if (err) {
           console.log(err);
         } else if (isMatch) {
           console.log("match");
-          console.log(user[0]._id + "  " + user[0].name);
-          res.json({ id: user[0]._id, name: user[0].name, success: true });
+          console.log(user._id + "  " + user.name);
+          res.json({ id: user._id, name: user.name, success: true, isadmin: user.isadmin });
         }
         else if(!isMatch){
             console.log("Incorrect Password");
-            res.json({success: false, message: "Incorrect Password"})
+            res.json({success: false, message: "Incorrect Password", isadmin: user.isadmin })
         }
       });
     }

@@ -16,6 +16,11 @@ const usersSchema = new mongoose.Schema({
     addtofavlist: {
         type: Array,
         required: false
+    },
+    isadmin: {
+        type: Boolean,
+        required: true,
+        default: false
     }
 })
 

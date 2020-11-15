@@ -102,10 +102,10 @@
 
         <script>
             async function deletefav(id) {
+              document.getElementById(id).remove();
              await fetch(`http://localhost:3000/deleteitem/?id=${id}&uid=${localStorage.getItem('id')}`, {method:"DELETE"}).then((res)=> res.json())
              .then((json) =>{
                  console.log(json)
-                 location.reload();
                  alert(json.message)
              })
          }
@@ -121,7 +121,7 @@
         document.getElementById("modalparent").innerHTML = ``;
       }
 
-      async function insertmodal(name, description, id, cuisine) {
+      async function insertmodal(name, description, id, cuisine, image, ingredients, price, review) {
         var content = `<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -133,7 +133,7 @@
       </div>
       <div class="modal-body">
         <img src="images/indian.jpg" class="card-img-top" alt="..." /><br/><br/><h6 style="color: red;">${cuisine}</h6>
-        ${description}
+        ${description}<br /> <h6 style="color: blue; display: inline;">Ingredients:</h6> ${ingredients} <br /> <h6 style="color: blue; display: inline;">Price:</h6> ${price} <br /> <h6 style="color: blue; display: inline;">Customer Reviews: </h6>${review}<br />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" onclick="clean()" data-dismiss="modal">View Less</button>
@@ -158,7 +158,7 @@
                  console.log(entry["oldid"]);
                  console.log(i);
                  var content = `
-              <div class="col-sm-4 card-padding">
+              <div id="${entry["oldid"]}" class="col-sm-4 card-padding">
                 <div class="card">
                     <img src="images/indian.jpg" class="card-img-top" alt="..." />
                     <div class="card-body">
@@ -172,7 +172,7 @@
                 entry["item"]
               }', '${entry["description"]}', '${entry["oldid"]}', '${
                 entry["cuisine"]
-              }')" data-toggle="modal" data-target="#exampleModal">View More</button>
+              }', '${entry["image"]}', '${entry["ingredients"]}', '${entry["price"]}', '${entry["review"]}')" data-toggle="modal" data-target="#exampleModal">View More</button>
                     </div>
                     <button type="button" onclick="deletefav('${
                       entry["oldid"]
