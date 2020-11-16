@@ -5,7 +5,8 @@ var app = express();
 
 app.use(cors());
 const foodList = require("./foodlist");
-const MONGO_URL = "mongodb://localhost/foodapp";
+//const MONGO_URL = "mongodb://localhost/foodapp";
+const MONGO_URL = "mongodb+srv://new-user:abcd1234@cluster0.8emsa.mongodb.net/<dbname>?retryWrites=true&w=majority";
 
 mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
@@ -132,6 +133,48 @@ app.delete("/deleteitem", async (req, res) => {
           users.findByIdAndUpdate(req.query.uid, update).then(res.json({ message: "Successfully Deleted"} ));
       }
   });
+});
+
+app.delete("/fooditemdelete", async (req, res) => {
+  await users.findById(req.body.id, async function (err, user) {
+    if(err){
+      console.log(err);
+      console.log("User Not Found")
+      res.json({ message: "User Not Found" });
+    }
+    else{
+      if(user.isadmin == true)
+      {
+        await foodList.findOneAndDelete({_id: req.body.itemid }, function (err, docs) { 
+          if (err){ 
+              console.log(err) 
+          } 
+          else{ 
+              console.log("Deleted Item : ", docs);
+              console.log("Item Deleted Successfully")
+          } 
+        });
+        const uList = await users.find();
+        uList.forEach((quser) =>{
+          if(quser.isadmin === false){
+          var newList = [];
+          quser.addtofavlist.forEach((food) => {
+            if (food.oldid != req.body.itemid) {
+              newList.push(food);
+            }
+          });
+          var update = quser;
+          update.addtofavlist = newList;
+          users.findByIdAndUpdate(quser._id, update).then(console.log("Successfully Deleted"));
+          res.json({ message: "Successfully Deleted"} )
+      }})
+      }
+      else{
+        console.log("Unauthorized Access. Deletion Denied.")
+        res.json({ message: "Unauthorized Access. Deletion Denied." });
+      }
+    }
+  })
 });
 
 //User Authentication

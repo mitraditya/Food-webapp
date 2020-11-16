@@ -7,7 +7,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
     <style>
         h1 {
             text-align: center;
@@ -126,7 +135,6 @@ async function logout(id) {
             }
 
             $(document).ready(() => {
-                console.log(localStorage.getItem("id"))
                 if(localStorage.getItem("id")!=null){
                     document.getElementById("buttons1").innerHTML = `<span style="color:white;">Welcome ${localStorage.getItem("name")}!</span>   <button id="logoutbutton" onclick="logout('${localStorage.getItem("id")}', '${localStorage.getItem("name")}')" class="btn bcolour btn-light btn-outline-success my-2 my-sm-0" type="button">      Log Out</button>`;
                 }
