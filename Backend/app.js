@@ -5,8 +5,8 @@ var app = express();
 
 app.use(cors());
 const foodList = require("./foodlist");
-//const MONGO_URL = "mongodb://localhost/foodapp";
-const MONGO_URL = "mongodb+srv://new-user:abcd1234@cluster0.8emsa.mongodb.net/<dbname>?retryWrites=true&w=majority";
+const MONGO_URL = "mongodb://localhost/foodapp";
+//const MONGO_URL = "mongodb+srv://new-user:abcd1234@cluster0.8emsa.mongodb.net/<dbname>?retryWrites=true&w=majority";
 
 mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,

@@ -79,7 +79,7 @@
     <!-- Cuisines -->
     <section id="cuisines" class="container">
       <div id="ItalianRoot">
-        <h1 class="text-center">The Italian Cuisine</h1><hr>
+        <h2 class="text-center">Italian</h2>
         <br />
         <br />
         <div class="row" id="Italian"></div>
@@ -169,16 +169,21 @@
     ></script>
 
     <script>
-      async function addtofav(id) {
-        await fetch(`http://localhost:3000/favFoodList?id=${id}&uid=${localStorage.getItem('id')}`, {
+      function addtofav(id) {
+        document.getElementById(id).innerHTML = `Added to Favourites<i class="fa fa-heart"></i>`;
+        document.getElementById(id).classList.remove("btn-success");
+        document.getElementById(id).classList.add("btn-danger");
+        fetch(`http://localhost:3000/favFoodList?id=${id}&uid=${localStorage.getItem('id')}`, {
           method: "POST",
         })
           .then((res) => res.json())
           .then((json) => {
             console.log(json);
             alert(json.message)
-            location.reload();
           });
+          document.getElementById("addedmodalfav").innerHTML = `Added to Favourites<i class="fa fa-heart"></i>`;
+          document.getElementById("addedmodalfav").classList.remove("btn-success");
+          document.getElementById("addedmodalfav").classList.add("btn-danger");
       }
 
       async function logout(id) {
@@ -212,7 +217,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" onclick="clean()" data-dismiss="modal">View Less</button>
-        <button type="button" class="btn btn-danger" onclick="addtofav('${id}')">Added to Favourites <i class="fa fa-heart"></i></button>
+        <button id="addedmodalfav" type="button" class="btn btn-danger" onclick="addtofav('${id}')">Added to Favourites <i class="fa fa-heart"></i></button>
       </div>
     </div>
   </div>
@@ -234,7 +239,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" onclick="clean()" data-dismiss="modal">View Less</button>
-        <button type="button" class="btn btn-success" onclick="addtofav('${id}')">Add to Favourites <i class="fa fa-heart"></i></button>
+        <button id="addedmodalfav" type="button" class="btn btn-success" onclick="addtofav('${id}')">Add to Favourites <i class="fa fa-heart"></i></button>
       </div>
     </div>
   </div>
@@ -287,7 +292,7 @@
                   `${entry[`cuisine`]}`
                 ).innerHTML += content;
                 countItalian++;
-              } else if (entry[`cuisine`] == "Italian"){
+              } else if(entry[`cuisine`] == "Italian") {
                 document.getElementById(`${entry[`cuisine`]}Hide`).innerHTML += content;
               }
 
