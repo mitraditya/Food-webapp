@@ -227,9 +227,6 @@
         document.getElementById(id).innerHTML = `Added to Favourites<i class="fa fa-heart"></i>`;
         document.getElementById(id).classList.remove("btn-success");
         document.getElementById(id).classList.add("btn-danger");
-        document.getElementById("addedmodalfav").innerHTML = `Added to Favourites<i class="fa fa-heart"></i>`;
-        document.getElementById("addedmodalfav").classList.remove("btn-success");
-        document.getElementById("addedmodalfav").classList.add("btn-danger");
         fetch(`http://localhost:3000/favFoodList?id=${id}&uid=${localStorage.getItem('id')}`, {
           method: "POST",
         })
@@ -238,6 +235,9 @@
             console.log(json);
             alert(json.message)
           });
+          document.getElementById("addedmodalfav").innerHTML = `Added to Favourites<i class="fa fa-heart"></i>`;
+          document.getElementById("addedmodalfav").classList.remove("btn-success");
+          document.getElementById("addedmodalfav").classList.add("btn-danger");
       }
 
       async function logout(id) {
